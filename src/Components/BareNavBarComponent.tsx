@@ -6,7 +6,7 @@ import logo from '@/Assets/LOGO.png'
 
 const BareNavBarComponent = () => {
   return (
-    <div className='bg-[#E0E0E0] flex '>
+    <div className='bg-[#E0E0E0] flex'>
       <div className='my-2 lg:my-4 ml-2 lg:ml-5 flex items-center'>
         <Image src={logo} alt='Caddy Track logo' className='w-12 lg:w-24 h-auto' />
       </div>
