@@ -11,6 +11,10 @@ export default function Home() {
 
   const router = useRouter()
 
+  const startTracking = () => {
+    router.push('/Login')
+  }
+
 
   return (
     <main className="">

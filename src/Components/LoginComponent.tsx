@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Label, TextInput, Button } from "flowbite-react";
 import { useRouter } from "next/navigation";
-import { IToken } from "@/Interfaces/Interface";
+import { IToken } from "@/DataServices/Interfaces/Interfaces";
 
 
 
