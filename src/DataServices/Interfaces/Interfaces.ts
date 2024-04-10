@@ -1,22 +1,23 @@
-
-export interface IUser {
-    Username: string,
+export interface CreateAccountDTO {
+    ID: number
+    Username: string
     Password: string
-
+    ProfilePicture: string
 }
 
-export interface IToken {
-    token: string
+export interface LoginDTO {
+    Username: string
+    Password: string
 }
 
-export interface IUserInfo {
-    Username: string,
-    Password: string,
-    Email: string
+export interface Message {
+    id: number,
+    userID: number,
+    chatroomModelID: number,
+    message: string,
+    publisherName: string
 }
 
-export interface IForgot {
-    Username: string,
-    NewPassword: string
-
+export interface MessageDTO {
+    message: string
 }

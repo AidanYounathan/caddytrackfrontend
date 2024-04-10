@@ -27,7 +27,7 @@ export default function Home() {
             <div className="">
               <p className="text-[40px] lg:mb-[33px] lg:text-7xl xl:text-8xl">Elevate Your Game</p>
             <p className="text-[#6B7280] mb-3 lg:mb-[33px] text-2xl lg:text-5xl">Track your clubs effortlessly</p>
-            <Button className="bg-[#84CC16] w-[277px] lg:w-[545px] lg:h-[82px] lg:text-[40px] text-[20px]" ><span className="lg:text-[40px] text-[20px]">Start Tracking</span></Button>
+            <Button onClick={startTracking} className="bg-[#84CC16] w-[277px] lg:w-[545px] lg:h-[82px] lg:text-[40px] text-[20px]" ><span className="lg:text-[40px] text-[20px]">Start Tracking</span></Button>
             </div>
           </div>
           {/* Right Side */}
