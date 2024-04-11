@@ -2,9 +2,9 @@
 import Image from "next/image";
 import BareNavBarComponent from "../Components/BareNavBarComponent";
 import { Button } from "flowbite-react";
-import leftGolfer from '../Assets/lftGolfer.png'
-import TRClubs from '../Assets/TRClubs.png'
-import BRClubs from '../Assets/30BRClubs.png'
+import leftGolfer from '@/Assets/lftGolfer.png'
+import TRClubs from '@/Assets/TRClubs.png'
+import BRClubs from '@/Assets/30BRClubs.png'
 import {useRouter} from 'next/navigation'
 
 export default function Home() {

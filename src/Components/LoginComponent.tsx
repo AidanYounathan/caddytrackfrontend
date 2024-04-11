@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import React, { useState } from "react";
 import { Label, TextInput, Button, FileInput } from "flowbite-react";
