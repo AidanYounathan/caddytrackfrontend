@@ -52,3 +52,10 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+.background{
+  background-image: url('../assets/GolfGuy.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
