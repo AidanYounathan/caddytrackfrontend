@@ -35,7 +35,7 @@ const page = () => {
 
   return (
     <div>
-      
+      <p>HEllo</p>
     <h1>Forgot Password</h1>
     <h1 className={result == "Password changed successfully" ? "text-green-400" : "text-red-600"}>{result}</h1>
 
