@@ -1,4 +1,3 @@
-
 import { CreateAccountDTO, LoginDTO, MessageDTO } from "./Interfaces/Interfaces"
 
 const Login = async (loginDTO : LoginDTO) => {
@@ -40,4 +39,18 @@ const SendMessage = async(message : MessageDTO) => {
 
 }
 
-export {Login, CreateAccount, GetChatMessages}
+const ForgotPassword = async(name:string, newPass:string) => {
+
+    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/UpdateUserPassword/${name}/${newPass}`, {
+        method:'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: ''
+    });
+    const data = await promise.json();
+    return data;
+    
+}
+
+export {Login, CreateAccount, GetChatMessages, ForgotPassword}
