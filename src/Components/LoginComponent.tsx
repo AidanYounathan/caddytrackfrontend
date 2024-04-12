@@ -59,7 +59,7 @@ const LoginComponent = () => {
         const result = await CreateAccount(newUser);
 
         if(result){
-          router.push("/Login");
+          changeBool();
         }
         else{
           setError(true);
