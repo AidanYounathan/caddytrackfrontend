@@ -6,6 +6,7 @@ import leftGolfer from '@/Assets/lftGolfer.png'
 import TRClubs from '@/Assets/TRClubs.png'
 import BRClubs from '@/Assets/30BRClubs.png'
 import {useRouter} from 'next/navigation'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function Home() {
 
@@ -40,7 +41,7 @@ export default function Home() {
             <div className="">
               <div><Image className="rounded-[10px] lg:rounded-[25px] mb-[16px] lg:mb-[28px]" src={TRClubs} alt=""></Image></div>
               <div><Image className="rounded-[10px] lg:rounded-[25px]" src={BRClubs} alt=""></Image></div>
-            
+              <Analytics/>
             </div>
           </div>
         </div>
