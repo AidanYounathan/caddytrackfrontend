@@ -39,18 +39,4 @@ const SendMessage = async(message : MessageDTO) => {
 
 }
 
-const ForgotPassword = async(name:string, newPass:string) => {
-
-    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/UpdateUserPassword/${name}/${newPass}`, {
-        method:'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: ''
-    });
-    const data = await promise.json();
-    return data;
-    
-}
-
-export {Login, CreateAccount, GetChatMessages, ForgotPassword}
+export {Login, CreateAccount, GetChatMessages}
