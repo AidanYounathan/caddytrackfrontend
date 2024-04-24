@@ -34,7 +34,7 @@ const LoginComponent = () => {
         const result = await Login(login);
   
         if(result.token != undefined){
-          router.push("/LoginHome");
+          router.push("/Dashboard");
         }
         else{
           setError(true);
