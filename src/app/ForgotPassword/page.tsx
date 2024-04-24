@@ -4,10 +4,18 @@ import BareNavBarComponent from "@/Components/BareNavBarComponent";
 import ForgotComponent from "@/Components/ForgotComponent";
 import '@/app/ForgotPassword/styles.css'
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+export default function Home() {
 
-export default page
+  return (
+    <>
+      <BareNavBarComponent/>
+      <div className="background w-screen h-screen flex">
+         <div className="w-[400px] mx-auto mt-[69px] lg:mt-[74px]">
+          <ForgotComponent/>
+          </div>
+      </div>
+    
+    </>
+   
+  );
+}
