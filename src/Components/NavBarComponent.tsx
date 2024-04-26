@@ -37,9 +37,9 @@ const NavbarComponent = () => {
       <Navbar.Toggle />
     </div>
     <Navbar.Collapse className='md:ml-[-10%] lg:ml-[-7%]'>
-      <Navbar.Link href="#" className='text-xl'>Home</Navbar.Link>
-      <Navbar.Link href="#" className='text-xl'>Course Search</Navbar.Link>
-      <Navbar.Link href="#" className='text-xl'>Chat</Navbar.Link>
+      <Navbar.Link href="Dashboard" className='text-xl'>Home</Navbar.Link>
+      <Navbar.Link href="CourseSearch" className='text-xl'>Course Search</Navbar.Link>
+      <Navbar.Link href="ChatPage" className='text-xl'>Chat</Navbar.Link>
     </Navbar.Collapse>
   </Navbar>
 
