@@ -4,10 +4,22 @@ import React from 'react'
 
 const page = () => {
   return (
+    <>
     <div >
       <NavbarComponent/>
-      <ChatComponent/>
+
+      <div className="background w-auto h-screen flex">
+         <div className="w-[400px] mx-auto mt-[69px] lg:mt-[74px]">
+         <ChatComponent/>
+          </div>
+      </div>
+      
+      
     </div>
+    
+    
+    </>
+    
   )
 }
 

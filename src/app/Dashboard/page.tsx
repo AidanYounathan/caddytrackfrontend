@@ -6,10 +6,21 @@ import React from 'react'
 
 const page = () => {
   return (
+
+    <>
     <div >
       <NavbarComponent/>
-      <DashboardComponent/>
+
+      <div className="background w-auto h-screen flex">
+         <div>
+         <DashboardComponent/>
+          </div>
+      </div>
+      
     </div>
+    
+    </>
+    
   )
 }
 

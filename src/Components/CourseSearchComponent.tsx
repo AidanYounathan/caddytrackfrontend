@@ -1,4 +1,4 @@
-import { TextInput, Button, Modal } from 'flowbite-react'
+import { TextInput, Button } from 'flowbite-react'
 import React from 'react'
 import { RiSearchLine } from 'react-icons/ri'
 import { useState } from "react";
