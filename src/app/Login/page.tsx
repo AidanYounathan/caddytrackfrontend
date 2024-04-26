@@ -7,12 +7,15 @@ export default function Home() {
 
   return (
     <>
+    <div className="bg">
       <BareNavBarComponent/>
       <div className="background w-auto h-screen flex">
          <div className="w-[400px] mx-auto mt-[69px] lg:mt-[74px]">
           <LoginComponent/>
           </div>
       </div>
+    </div>
+      
     
     </>
    
