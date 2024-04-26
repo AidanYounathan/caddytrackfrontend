@@ -8,10 +8,10 @@ const page = () => {
   return (
 
     <>
-    <div >
+    <div className='h-screen'>
       <NavbarComponent/>
 
-      <div className="background w-auto h-screen flex">
+      <div className="background w-auto  flex">
          <div>
          <DashboardComponent/>
           </div>

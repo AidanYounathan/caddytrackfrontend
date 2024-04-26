@@ -5,10 +5,10 @@ import React from 'react'
 const page = () => {
   return (
     <>
-    <div >
+    <div className='h-screen'>
       <NavbarComponent/>
 
-      <div className="background w-auto h-screen flex">
+      <div className="background w-auto  flex">
          <div className="w-[400px] mx-auto mt-[69px] lg:mt-[74px]">
          <ChatComponent/>
           </div>
