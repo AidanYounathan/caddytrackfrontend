@@ -89,8 +89,8 @@ const LoginComponent = () => {
     <div className="bg-white opacity-95 rounded-xl py-5">
       <p className="text-3xl text-center pb-4 tracking-wide">{switchBool ? "Login" : "Create Account"}</p>
 
-      <h1 className={switchBool ? "text-red-600" : "hidden"}>{error ? "Username or Password incorrect. Please try again." : ""}</h1>
-      <h1 className={!switchBool ? "text-red-600" : "hidden"}>{error ? "Could not create your account. Please try again." : ""}</h1>
+      <h1 className={switchBool ? "text-red-600 text-center px-2" : "hidden"}>{error ? "Username or Password incorrect. Please try again." : ""}</h1>
+      <h1 className={!switchBool ? "text-red-600 text-center" : "hidden"}>{error ? "Could not create your account. Please try again." : ""}</h1>
       
       <form className="flex flex-col gap-4">
             <div className="mx-auto">

@@ -2,18 +2,17 @@
 import React from 'react'
 import Image from 'next/image'
 import logo from '@/Assets/LOGO.png'
+import { Avatar, Dropdown, Navbar } from 'flowbite-react'
 
 
 const BareNavBarComponent = () => {
   return (
-    <div className='bg-[#E0E0E0] shadow-sm bg-opacity-50  flex'>
-      <div className='my-2 lg:my-4 ml-2 lg:ml-5 flex items-center'>
-        <Image src={logo} alt='Caddy Track logo' className='w-12 lg:w-24 h-auto' />
-      </div>
-      <div className='flex-grow flex ml-[-12%] md:ml-[-5%] items-center justify-center'>
-      <p className='FuturaHeavy text-center text-4xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-7xl'>Caddy Track</p>
-      </div>
-    </div>
+    <Navbar className='bg-[#cccccc] shadow-lg bg-opacity-50' fluid >
+      <Navbar.Brand >
+        <Image src={logo} className="mr-2 w-10 lg:w-16 h-auto" alt="Flowbite React Logo" />
+        <span className="self-center whitespace-nowrap text-3xl font-semibold dark:text-white">CaddyTrack</span>
+      </Navbar.Brand>
+    </Navbar>
   )
 }
 
