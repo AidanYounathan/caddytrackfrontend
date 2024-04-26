@@ -6,10 +6,18 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div >
+    <>
+    <div className='bg-[#274632]'>
       <NavbarComponent/>
-      <CourseSearchComponent/>
+      <div className="background w-auto h-screen flex">
+         <div className="w-[400px] mx-auto mt-[69px] lg:mt-[74px]">
+          <CourseSearchComponent/>
+          </div>
+      </div>
     </div>
+      
+    
+    </>
   )
 }
 
