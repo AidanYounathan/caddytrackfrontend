@@ -10,14 +10,9 @@ export interface LoginDTO {
     Password: string
 }
 
-export interface Message {
-    id: number,
-    userID: number,
-    chatroomModelID: number,
-    message: string,
-    publisherName: string
-}
-
-export interface MessageDTO {
-    message: string
+export interface TrackerDTO {
+    name: string,
+    stockYardage: number,
+    maxYardage: number,
+    confidenceLevel: number
 }

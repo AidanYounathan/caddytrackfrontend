@@ -1,4 +1,4 @@
-import { CreateAccountDTO, LoginDTO, MessageDTO } from "./Interfaces/Interfaces"
+import { CreateAccountDTO, LoginDTO, TrackerDTO } from "./Interfaces/Interfaces"
 
 const Login = async (loginDTO : LoginDTO) => {
     
@@ -29,16 +29,6 @@ const CreateAccount = async(createDTO : CreateAccountDTO) => {
 
 }
 
-const GetChatMessages = async(chat: string) => {
-    const promise = await fetch('https://caddytrackapi.azurewebsites.net/ChatroomController/GetMessagesFromChatroom/'+chat);
-    const data = await promise.json();
-    return data;
-}
-
-const SendMessage = async(message : MessageDTO) => {
-
-}
-
 const ForgotPassword = async(name:string, newPass:string) => {
 
     const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/UpdateUserPassword/${name}/${newPass}`, {
@@ -53,4 +43,53 @@ const ForgotPassword = async(name:string, newPass:string) => {
     
 }
 
-export {Login, CreateAccount, GetChatMessages, ForgotPassword}
+const AddTracker = async (name: string, tracker:TrackerDTO) => {
+
+    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/TrackerController/AddTracker/${name}`, {
+        method:'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(tracker)
+    });
+    const data = await promise.json();
+    return data;
+
+}
+
+const GetTrackers = async(name: string) => {
+    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/TrackerController/GetTrackersByUser/${name}`);
+    const data = await promise.json();
+    return data;
+}
+
+const EditTracker = async(name:string, id:number) => {
+
+    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/TrackerController/EditTracker/${name}/${id}`, {
+        method:'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: ''
+    });
+    const data = await promise.json();
+    return data;
+
+}
+
+const DeleteTracker = async(name:string, id:number) => {
+
+    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/TrackerController/DeleteTracker/${name}/${id}`, {
+        method:'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: ''
+    });
+    const data = await promise.json();
+    return data;
+
+}
+
+export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker}
