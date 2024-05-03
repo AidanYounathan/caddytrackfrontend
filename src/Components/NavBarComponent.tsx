@@ -29,7 +29,7 @@ const NavbarComponent = () => {
         arrowIcon={false}
         inline
         label={
-          <Image className='w-14 mr-2 lg:w-16 h-auto rounded-full' src={defaultPFP} alt='' />
+          <Image className='w-14 mr-2 lg:w-16 h-auto rounded-full' src={data.userInfo.ProfilePicture == null ? defaultPFP : data.userInfo.ProfilePicture} alt='' />
         }
       >
         <Dropdown.Header>
