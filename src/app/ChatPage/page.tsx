@@ -5,8 +5,9 @@ import ChatComponent from '@/Components/ChatComponent'
 import React, { useEffect, useState } from 'react'
 import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { useAppContext } from '@/Context/Context';
+import { Button } from 'flowbite-react';
 
-const page = () => {
+const Page = () => {
 
   const data = useAppContext();
   const [conn, setConnection] = useState<any>();
@@ -40,6 +41,7 @@ const page = () => {
     <div >
       <NavbarComponent/>
       <div className="background w-auto h-screen flex">
+        <Button></Button>
          <div className="w-[400px] mx-auto mt-[69px] lg:mt-[74px]">
          <ChatComponent/>
           </div>
@@ -50,4 +52,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

@@ -4,7 +4,7 @@ import NavbarComponent from '@/Components/NavBarComponent'
 import DashboardComponent from '@/Components/DashboardComponent'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
 
   return (
     <>
@@ -15,4 +15,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

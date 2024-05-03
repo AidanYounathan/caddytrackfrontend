@@ -4,7 +4,7 @@ import NavbarComponent from '@/Components/NavBarComponent'
 import CourseSearchComponent from '@/Components/CourseSearchComponent'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
   return (
     <>
     <div className='bg-[#274632]'>
@@ -19,4 +19,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
