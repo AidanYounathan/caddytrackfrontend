@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import { Label, TextInput, Button, FileInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import { CreateAccountDTO, LoginDTO } from "../DataServices/Interfaces/Interfaces";
-import { Login, CreateAccount } from "../DataServices/DataServices";
+import { Login, CreateAccount, GetUserData } from "../DataServices/DataServices";
+import { useAppContext } from "@/Context/Context";
 
 const LoginComponent = () => {
 
+  const {setUser} = useAppContext();
 
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -16,7 +18,8 @@ const LoginComponent = () => {
   const [switchBool, setSwitchBool] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
-    const router = useRouter();
+  const router = useRouter();
+  const data = useAppContext();
 
     const changeBool = () => {
       setSwitchBool(!switchBool)
@@ -35,6 +38,8 @@ const LoginComponent = () => {
   
         if(result.token != undefined){
           router.push("/Dashboard");
+          setUser(username);
+          getUserData();
         }
         else{
           setError(true);
@@ -83,6 +88,10 @@ const LoginComponent = () => {
         router.push('/ForgotPassword')
     }
 
+    async function getUserData() {
+      const stuff = await GetUserData(username);
+      data.setUserInfo(stuff);
+    }
 
   return (
     <>
@@ -131,13 +140,13 @@ const LoginComponent = () => {
               >
                 {switchBool ? "Log In" : "Create Account"}
               </Button>
-              <a onClick={handleForgot} className={switchBool ? "underline text-sm my-auto" : "hidden"}>
+              <a onClick={handleForgot} className={switchBool ? "underline text-sm my-auto cursor-pointer" : "hidden"}>
                 Forget Password?
               </a>
             </div>
             <div className="mx-auto">
               <a
-                className="underline text-[#0744A0] text-sm text-center"
+                className="underline text-[#0744A0] text-sm text-center cursor-pointer"
                 onClick={changeBool}
               >
                 {switchBool ? "Don't Have An Account? Click Here" : "Already have an account? Click Here"}
@@ -146,12 +155,6 @@ const LoginComponent = () => {
           </form>
           </div>
     </>
-
-
-
-
-
-
     
   )
 }

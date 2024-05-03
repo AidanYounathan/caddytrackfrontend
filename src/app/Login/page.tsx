@@ -1,4 +1,5 @@
 'use client'
+
 import LoginComponent from "@/Components/LoginComponent";
 import BareNavBarComponent from "@/Components/BareNavBarComponent";
 import '@/app/Login/styles.css'

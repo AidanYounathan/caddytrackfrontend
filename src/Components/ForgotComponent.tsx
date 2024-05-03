@@ -68,21 +68,14 @@ const Page = () => {
                             required
                         />
 
-
-
                     </div>
 
                     <div className="flex space-x-6 mb-4 mx-auto">
                         <Button className="w-36 text-white border-black"
                             color="blue" onClick={Forgot}>Change</Button>
-                        <a className="underline text-[#0744A0] text-sm text-center" onClick={GoToLogin} >Return to Login</a>
+                        <a className="underline text-[#0744A0] text-sm text-center cursor-pointer" onClick={GoToLogin} >Return to Login</a>
 
                     </div>
-
-
-
-
-
 
                 </form>
             </div>

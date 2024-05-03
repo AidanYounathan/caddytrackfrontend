@@ -92,4 +92,11 @@ const DeleteTracker = async(name:string, id:number) => {
 
 }
 
-export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker}
+const GetUserData = async (user:string) => {
+    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/GetUserInfoByName/${user}`);
+    const data = await promise.json();
+    console.log(data);
+    return data;
+}
+
+export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData}
