@@ -68,8 +68,6 @@ const Page = () => {
                             required
                         />
 
-
-
                     </div>
 
                     <div className="flex space-x-6 mb-4 mx-auto">
@@ -78,11 +76,6 @@ const Page = () => {
                         <a className="underline text-[#0744A0] text-sm text-center cursor-pointer" onClick={GoToLogin} >Return to Login</a>
 
                     </div>
-
-
-
-
-
 
                 </form>
             </div>

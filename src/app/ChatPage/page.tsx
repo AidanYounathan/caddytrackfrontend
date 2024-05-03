@@ -2,7 +2,7 @@
 
 import NavbarComponent from '@/Components/NavBarComponent'
 import ChatComponent from '@/Components/ChatComponent'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { useAppContext } from '@/Context/Context';
 
@@ -12,11 +12,15 @@ const page = () => {
   const [conn, setConnection] = useState<any>();
   const [messages, setMessages] = useState<object[]>([]);
 
+  useEffect(() => {
+    JoinChatroom(data.user, "Chat");
+  }, [])
+
   const JoinChatroom = async (username:string, chatroom:string) => {
     try{
       const conn = new HubConnectionBuilder().withUrl("http://localhost:3000").configureLogging(LogLevel.Information).build();
     
-      conn.on("JoinSpecificChatroom", (username, msg) => {
+      conn.on("JoinSpecificChat", (username, msg) => {
         console.log("msg: ", msg);
       })
 
