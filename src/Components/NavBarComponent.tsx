@@ -5,13 +5,18 @@ import Image from 'next/image'
 import logo from '@/Assets/LOGO.png'
 import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react'
 import defaultPFP from '../../public/defaultPFP.jpg'
+import { useRouter } from 'next/navigation'
+import { useAppContext } from '@/Context/Context'
 
 
 const NavbarComponent = () => {
 
-    const [pfp, setPfp] = useState<string>('../../public/defaultPFP.jpg')
-    const [userName, setUsername] = useState<string>('User');
-    const [email, setEmail] = useState<string>('UserEmail@Email.com');
+    const data = useAppContext();
+    const router = useRouter();
+
+    function signOut() {
+      router.push("/Login");
+    }
 
     return (
     <Navbar fluid className='bg-[#cccccc] shadow-lg bg-opacity-50' >
@@ -24,15 +29,15 @@ const NavbarComponent = () => {
         arrowIcon={false}
         inline
         label={
-          <Image className='w-14 mr-2 lg:w-16 h-auto rounded-full' src={defaultPFP} alt='' />
+          <Image className='w-14 mr-2 lg:w-16 h-auto rounded-full' src={data.userInfo.ProfilePicture == null ? defaultPFP : data.userInfo.ProfilePicture} alt='' />
         }
       >
         <Dropdown.Header>
-          <span className="block text-sm">{userName}</span>
-          <span className="block truncate text-sm font-medium">{email}</span>
+          <span className="block text-sm">{data.user}</span>
+          <span className="block truncate text-sm font-medium">{'user@gmail.com'}</span>
         </Dropdown.Header>
         
-        <Dropdown.Item>Sign out</Dropdown.Item>
+        <Dropdown.Item onClick={signOut}>Sign out</Dropdown.Item>
       </Dropdown>
       <Navbar.Toggle />
     </div>

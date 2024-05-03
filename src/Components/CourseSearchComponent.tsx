@@ -15,9 +15,6 @@ const CourseSearchComponent = () => {
     }
   }
 
-
-
-
   const [openModal, setOpenModal] = useState(true);
   return (
     <>

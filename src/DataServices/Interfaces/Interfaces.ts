@@ -10,14 +10,25 @@ export interface LoginDTO {
     Password: string
 }
 
-export interface Message {
-    id: number,
-    userID: number,
-    chatroomModelID: number,
-    message: string,
-    publisherName: string
+export interface TrackerDTO {
+    name: string,
+    stockYardage: number,
+    maxYardage: number,
+    confidenceLevel: number
 }
 
-export interface MessageDTO {
-    message: string
+export interface ITrackerModel {
+    ID: number,
+    UserModelID: number,
+    Name: string,
+    StockYardage: number,
+    MaxYardage: number,
+    ConfidenceLevel: number
+}
+
+export interface IUserInfo {
+    UserID: number,
+    Username: string,
+    ProfilePicture: string,
+    Trackers: ITrackerModel[]
 }

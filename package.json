@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@microsoft/signalr": "^8.0.0",
     "@vercel/analytics": "^1.2.2",
     "flowbite-react": "^0.7.5",
     "next": "14.1.4",

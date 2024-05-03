@@ -1,28 +1,56 @@
-import React, { useState } from "react";
-import defaultPFP from "../../public/defaultPFP.jpg";
-import Image from "next/image";
-import { Button, Checkbox, Label, Modal, RangeSlider, TextInput } from "flowbite-react";
+
+import React, { useEffect, useState } from 'react'
+import defaultPFP from '../../public/defaultPFP.jpg'
+import Image from 'next/image'
+import { useAppContext } from '@/Context/Context'
+import { useRouter } from 'next/navigation'
+import { Button, Label, Modal, RangeSlider, TextInput } from "flowbite-react";
 import ClubTrackerComponent from "./ClubTrackerComponent";
+import { AddTracker, GetTrackers } from '@/DataServices/DataServices'
+import { ITrackerModel, TrackerDTO } from '@/DataServices/Interfaces/Interfaces'
 
 const DashboardComponent = () => {
 
+    const data = useAppContext();
+    const router = useRouter();
+
+    useEffect(() => {
+        if(data.userInfo == null){
+            router.push("/Login");
+        }
+    }, [])
 
     const [openModal, setOpenModal] = useState(false);
     const [openEditModal, setOpenEditModal] = useState(false);
 
     const [clubName, setClubName] = useState<string>('');
-    const [stock, setStock] = useState<number>();
-    const [max, setMax] = useState<number>();
+    const [stock, setStock] = useState<number>(0);
+    const [max, setMax] = useState<number>(0);
     const [confidence, setConfidence] = useState<number>(5);
     const [editClubName, setEditClubName] = useState<string>('');
-    const [editStock, setEditStock] = useState<number>();
-    const [editMax, setEditMax] = useState<number>();
+    const [editStock, setEditStock] = useState<number>(0);
+    const [editMax, setEditMax] = useState<number>(0);
     const [editConfidence, setEditConfidence] = useState<number>(5);
 
     function onCloseModal() {
         setOpenModal(false);
     }
+
     function onCloseEditModal() {
+        setOpenModal(false);
+    }
+
+    async function addNewTracker() {
+
+        const newTracker:TrackerDTO = {
+            name: clubName,
+            stockYardage: stock,
+            maxYardage: max,
+            confidenceLevel: confidence
+        }
+
+        if(data.user != "")
+            console.log(await AddTracker(data.user, newTracker));
         setOpenModal(false);
     }
 
@@ -40,7 +68,14 @@ const DashboardComponent = () => {
                     <p>Edit:</p>
                 </div>
                 <hr className=" h-[2px] bg-white" />
-                {/* Add ClubTrackerComponent Here, that component is for each individual club */}
+
+                {
+                   (data.userInfo.Trackers == null || data.userInfo.Trackers.length == 0) ? <p>No Clubs added yet!</p> : data.userInfo.Trackers.map(e => {
+                        console.log(e);
+                        return(""); 
+                   })
+                }
+
             </div>
 
             {/* Add Club Modal */}
@@ -54,7 +89,7 @@ const DashboardComponent = () => {
 
                         <div>
                             <div className="mb-2 block">
-                                <Label htmlFor="name" value="Stock/Average Yardage" />
+                                <Label htmlFor="name" value="Club Name" />
                             </div>
                             <TextInput
                                 id="name"
@@ -64,8 +99,6 @@ const DashboardComponent = () => {
                                 required
                             />
                         </div>
-
-
 
                         <div>
                             <div className="mb-2 block">
@@ -107,7 +140,7 @@ const DashboardComponent = () => {
                         </div>
 
                         <div className="w-full">
-                            <Button>Submit Club</Button>
+                            <Button onClick={addNewTracker}>Submit Club</Button>
                         </div>
                     </div>
                 </Modal.Body>
