@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Dancing_Script } from "next/font/google";
 import { Courgette } from "next/font/google";
 import "./globals.css";
+import { AppWrapper } from "@/Context/Context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AppWrapper>
+          {children}
+        </AppWrapper>
+        </body>
     </html>
   );
 }
