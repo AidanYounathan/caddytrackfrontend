@@ -1,0 +1,248 @@
+[
+  {
+    "id": 1,
+    "name": "Pebble Beach Golf Links",
+    "description": "Legendary course set along the stunning Monterey Peninsula, offering breathtaking ocean views and challenging play.",
+    "location": {
+      "address": "1700 17-Mile Drive",
+      "city": "Pebble Beach",
+      "state": "California",
+      "zipCode": "93953",
+      "country": "USA"
+    },
+    "rating": 4.9,
+    "numHoles": 18,
+    "par": 72,
+    "yardage": 6828,
+    "slope": 147,
+    "facilities": [
+      "Driving range",
+      "Pro shop",
+      "Restaurant",
+      "Locker rooms"
+    ],
+    "greenFee": {
+      "weekday": 595,
+      "weekend": 595
+    }
+  },
+  {
+    "id": 2,
+    "name": "Pinehurst Resort & Country Club",
+    "description": "Historic resort with multiple championship courses, including the renowned No. 2 course, a US Open venue.",
+    "location": {
+      "address": "80 Carolina Vista Dr",
+      "city": "Pinehurst",
+      "state": "North Carolina",
+      "zipCode": "28374",
+      "country": "USA"
+    },
+    "rating": 4.7,
+    "numHoles": 18,
+    "par": 72,
+    "yardage": 7292,
+    "slope": 140,
+    "facilities": [
+      "Driving range",
+      "Pro shop",
+      "Restaurants",
+      "Spa",
+      "Lodging"
+    ],
+    "greenFee": {
+      "weekday": 395,
+      "weekend": 495
+    }
+  },
+  {
+    "id": 3,
+    "name": "St Andrews Links (Old Course)",
+    "description": "The legendary home of golf, offering an unparalleled experience on the historic Old Course.",
+    "location": {
+      "address": "The Royal and Ancient Golf Club of St Andrews",
+      "city": "St Andrews",
+      "county": "Fife",
+      "postalCode": "KY16 9SF",
+      "country": "Scotland"
+    },
+    "rating": 4.9,
+    "numHoles": 18,
+    "par": 72,
+    "yardage": 6721,
+    "slope": 137,
+    "facilities": [
+      "Driving range",
+      "Pro shop",
+      "Restaurants",
+      "Lodging"
+    ],
+    "greenFee": {
+      "weekday": 270,
+      "weekend": 270
+    }
+  },
+  {
+    "id": 4,
+    "name": "TPC Sawgrass (The Players Stadium Course)",
+    "description": "Home of the PGA Tour's flagship event, The Players Championship, featuring the iconic island green on the 17th hole.",
+    "location": {
+      "address": "110 TPC Blvd",
+      "city": "Ponte Vedra Beach",
+      "state": "Florida",
+      "zipCode": "32082",
+      "country": "USA"
+    },
+    "rating": 4.8,
+    "numHoles": 18,
+    "par": 72,
+    "yardage": 7215,
+    "slope": 155,
+    "facilities": [
+      "Driving range",
+      "Pro shop",
+      "Restaurants",
+      "Locker rooms",
+      "Spa"
+    ],
+    "greenFee": {
+      "weekday": 650,
+      "weekend": 650
+    }
+  },
+  {
+    "id": 5,
+    "name": "Bandon Dunes Golf Resort",
+    "description": "Acclaimed resort along the Oregon coast, featuring multiple world-class links-style courses and stunning natural scenery.",
+    "location": {
+      "address": "57744 Round Lake Rd",
+      "city": "Bandon",
+      "state": "Oregon",
+      "zipCode": "97411",
+      "country": "USA"
+    },
+    "rating": 4.9,
+    "numHoles": 18,
+    "par": 72,
+    "yardage": 6732,
+    "slope": 142,
+    "facilities": [
+      "Driving range",
+      "Pro shop",
+      "Restaurants",
+      "Lodging"
+    ],
+    "greenFee": {
+      "weekday": 310,
+      "weekend": 310
+    }
+  },
+  {
+    "id": 6,
+    "name": "Valderrama Golf Club",
+    "description": "Prestigious course in southern Spain, known for its challenging layout and hosting the Ryder Cup and other major events.",
+    "location": {
+      "address": "Ctra de Cádiz Km 168",
+      "city": "Sotogrande",
+      "province": "Cádiz",
+      "postalCode": "11310",
+      "country": "Spain"
+    },
+    "rating": 4.8,
+    "numHoles": 18,
+    "par": 71,
+    "yardage": 6990,
+    "slope": 142,
+    "facilities": [
+      "Driving range",
+      "Pro shop",
+      "Restaurants",
+      "Locker rooms",
+      "Spa"
+    ],
+    "greenFee": {
+      "weekday": 350,
+      "weekend": 350
+    }
+  },
+  {
+    "id": 7,
+    "name": "Royal Melbourne Golf Club (West Course)",
+    "description": "Consistently ranked among the world's top courses, with a strategic layout and exceptional bunkering.",
+    "location": {
+      "address": "305 Cheltenham Rd",
+      "city": "Black Rock",
+      "state": "Victoria",
+      "postalCode": "3193",
+      "country": "Australia"
+    },
+    "rating": 4.9,
+    "numHoles": 18,
+    "par": 72,
+    "yardage": 6984,
+    "slope": 150,
+    "facilities": [
+      "Driving range",
+      "Pro shop",
+      "Restaurants",
+      "Locker rooms"
+    ],
+    "greenFee": {
+      "weekday": 200,
+      "weekend": 200
+    }
+  },
+  {
+    "id": 8,
+    "name": "Muirfield Village Golf Club",
+    "description": "Jack Nicklaus' acclaimed design, host of the Memorial Tournament and a regular PGA Tour stop.",
+    "location": {
+      "address": "5750 Memorial Dr",
+      "city": "Dublin",
+      "state": "Ohio",
+      "zipCode": "43017",
+      "country": "USA"
+    },
+    "rating": 4.8,
+    "numHoles": 18,
+    "par": 72,
+    "yardage": 7392,
+    "slope": 148,
+    "facilities": [
+      "Driving range",
+      "Pro shop",
+      "Restaurants",
+      "Locker rooms"
+    ],
+    "greenFee": {
+      "weekday": 375,
+      "weekend": 375
+    }
+  },
+  {
+    "id": 9,
+    "name": "Mission Hills Golf Club (World Cup Course)",
+    "description": "Renowned course on the tropical island of Hainan, China, hosting the World Cup and other major events.",
+    "location": {
+      "address": "No.1 Mission Hills Road",
+      "city": "Haikou",
+      "province": "Hainan",
+      "postalCode": "570311",
+      "country": "China"
+    },
+    "rating": 4.7,
+    "numHoles": 18,
+    "par": 72,
+    "yardage": 7808,
+    "slope": 144,
+    "facilities": [
+        "Driving range",
+        "Pro shop",
+        "Restaurants",
+        "Lodging"
+      ],
+      "greenFee": {
+        "weekday": 270,
+        "weekend": 270
+      }
+    }
+  ]
