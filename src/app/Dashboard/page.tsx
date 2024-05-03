@@ -7,19 +7,9 @@ import React from 'react'
 const page = () => {
 
   return (
-
     <>
-    <div >
       <NavbarComponent/>
-
-      <div className="background w-auto h-screen flex">
-         <div>
-         <DashboardComponent/>
-          </div>
-      </div>
-      
-    </div>
-    
+      <DashboardComponent/>
     </>
     
   )
