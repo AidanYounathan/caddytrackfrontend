@@ -32,8 +32,6 @@ const DashboardComponent = () => {
     const [editMax, setEditMax] = useState<number>(0);
     const [editConfidence, setEditConfidence] = useState<number>(5);
 
-    const [trackers, setTrackers] = useState<ITrackerModel[]>([]);
-
     function onCloseModal() {
         setOpenModal(false);
     }
@@ -56,11 +54,6 @@ const DashboardComponent = () => {
         setOpenModal(false);
     }
 
-    useEffect(() => {
-        setTrackers(data.userInfo.Trackers);
-        console.log(data.userInfo.Trackers);
-    }, [])
-
     return (
         <div>
             <Button color="blue" onClick={() => setOpenModal(true)}>
@@ -77,7 +70,7 @@ const DashboardComponent = () => {
                 <hr className=" h-[2px] bg-white" />
 
                 {
-                   (trackers == null || trackers.length == 0) ? <p>No Clubs added yet!</p> : trackers.map(e => {
+                   (data.userInfo.Trackers == null || data.userInfo.Trackers.length == 0) ? <p>No Clubs added yet!</p> : data.userInfo.Trackers.map(e => {
                         console.log(e);
                         return(""); 
                    })

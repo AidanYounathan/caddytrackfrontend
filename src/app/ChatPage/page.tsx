@@ -12,10 +12,6 @@ const page = () => {
   const [conn, setConnection] = useState<any>();
   const [messages, setMessages] = useState<object[]>([]);
 
-  useEffect(() => {
-    JoinChatroom(data.user, "Chat");
-  }, [])
-
   const JoinChatroom = async (username:string, chatroom:string) => {
     try{
       const conn = new HubConnectionBuilder().withUrl("http://localhost:3000").configureLogging(LogLevel.Information).build();
