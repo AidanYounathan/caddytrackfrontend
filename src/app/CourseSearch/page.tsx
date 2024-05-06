@@ -7,9 +7,9 @@ import React from 'react'
 const Page = () => {
   return (
     <>
-    <div className='bg-[#274632]'>
+    <div className='bg-[#274632] h-screen'>
       <NavbarComponent/>
-      <div className="background w-auto h-screen flex">
+      <div className="background w-auto  flex">
          <div className="w-[400px] mx-auto mt-[69px] lg:mt-[74px]">
           <CourseSearchComponent/>
           </div>
