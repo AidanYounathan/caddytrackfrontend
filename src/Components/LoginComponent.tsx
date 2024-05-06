@@ -38,7 +38,6 @@ const LoginComponent = () => {
   
         if(result.token != undefined){
           router.push("/Dashboard");
-          setUser(username);
           getUserData();
         }
         else{
@@ -89,8 +88,7 @@ const LoginComponent = () => {
     }
 
     async function getUserData() {
-      const stuff = await GetUserData(username);
-      data.setUserInfo(stuff);
+      data.setUserItems(username);
     }
 
   return (

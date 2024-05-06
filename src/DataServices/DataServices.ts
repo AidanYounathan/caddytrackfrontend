@@ -1,4 +1,4 @@
-import { CreateAccountDTO, LoginDTO, TrackerDTO } from "./Interfaces/Interfaces"
+import { CreateAccountDTO, IUserInfo, LoginDTO, TrackerDTO } from "./Interfaces/Interfaces"
 
 const Login = async (loginDTO : LoginDTO) => {
     
@@ -94,8 +94,7 @@ const DeleteTracker = async(name:string, id:number) => {
 
 const GetUserData = async (user:string) => {
     const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/GetUserInfoByName/${user}`);
-    const data = await promise.json();
-    console.log(data);
+    const data:IUserInfo = await promise.json();
     return data;
 }
 

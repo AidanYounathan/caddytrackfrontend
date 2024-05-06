@@ -15,6 +15,7 @@ const NavbarComponent = () => {
     const router = useRouter();
 
     function signOut() {
+      data.logout();
       router.push("/Login");
     }
 
