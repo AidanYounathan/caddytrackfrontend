@@ -1,3 +1,4 @@
+'use client'
 import { GetUserPfp } from '@/DataServices/DataServices'
 import { IMsg } from '@/DataServices/Interfaces/Interfaces'
 import React, { useEffect, useState } from 'react'
