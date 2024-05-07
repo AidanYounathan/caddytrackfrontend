@@ -18,17 +18,17 @@ export interface TrackerDTO {
 }
 
 export interface ITrackerModel {
-    ID: number,
-    UserModelID: number,
-    Name: string,
-    StockYardage: number,
-    MaxYardage: number,
-    ConfidenceLevel: number
+    id: number,
+    userModelID: number,
+    name: string,
+    stockYardage: number,
+    maxYardage: number,
+    confidenceLevel: number
 }
 
 export interface IUserInfo {
     UserID: number,
     Username: string,
     ProfilePicture: string,
-    Trackers: ITrackerModel[]
+    trackers: ITrackerModel[]
 }

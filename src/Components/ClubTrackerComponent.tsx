@@ -10,7 +10,7 @@ type iObject = {
 
 const ClubTrackerComponent = (props: iObject) => {
   return (
-    <div className='flex justify-between '>
+    <div className='flex justify-between text-white'>
       <p>{props.name}</p>
       <p>{props.stock}</p>
       <p>{props.max}</p>

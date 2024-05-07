@@ -6,19 +6,13 @@ import { useAppContext } from '@/Context/Context'
 import { useRouter } from 'next/navigation'
 import { Button, Label, Modal, RangeSlider, TextInput } from "flowbite-react";
 import ClubTrackerComponent from "./ClubTrackerComponent";
-import { AddTracker, GetTrackers } from '@/DataServices/DataServices'
+import { AddTracker, GetTrackers, GetUserData } from '@/DataServices/DataServices'
 import { ITrackerModel, TrackerDTO } from '@/DataServices/Interfaces/Interfaces'
 
 const DashboardComponent = () => {
 
     const data = useAppContext();
     const router = useRouter();
-
-    useEffect(() => {
-        if(data.userInfo == null){
-            router.push("/Login");
-        }
-    }, [])
 
     const [openModal, setOpenModal] = useState(false);
     const [openEditModal, setOpenEditModal] = useState(false);
@@ -51,6 +45,7 @@ const DashboardComponent = () => {
 
         if(data.user != "")
             console.log(await AddTracker(data.user, newTracker));
+        data.resetUserInfo();
         setOpenModal(false);
     }
 
@@ -70,9 +65,10 @@ const DashboardComponent = () => {
                 <hr className=" h-[2px] bg-white" />
 
                 {
-                   (data.userInfo.Trackers == null || data.userInfo.Trackers.length == 0) ? <p>No Clubs added yet!</p> : data.userInfo.Trackers.map(e => {
-                        console.log(e);
-                        return(""); 
+                   (data.userInfo.trackers == null || data.userInfo.trackers.length == 0) ? <p>No Clubs added yet!</p> : data.userInfo.trackers.map(e => {
+                        return(
+                            <ClubTrackerComponent key={e.id} name={e.name} stock={e.stockYardage} max={e.maxYardage} confidence={e.confidenceLevel}></ClubTrackerComponent>
+                        ); 
                    })
                 }
 
