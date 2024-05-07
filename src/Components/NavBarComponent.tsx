@@ -18,6 +18,10 @@ const NavbarComponent = () => {
       router.push("/Login");
     }
 
+    function profilePage() {
+      router.push("/Profile");
+    }
+
     return (
     <Navbar fluid className='bg-[#cccccc] shadow-lg bg-opacity-50' >
     <Navbar.Brand >
@@ -34,7 +38,7 @@ const NavbarComponent = () => {
       >
         <Dropdown.Header>
           <span className="block text-sm">{data.user}</span>
-          <span className="block truncate text-sm font-medium">{'user@gmail.com'}</span>
+          <span className="block truncate text-sm font-medium cursor-pointer"  onClick={()=> profilePage()}>{'Profile Page'}</span>
         </Dropdown.Header>
         
         <Dropdown.Item onClick={signOut}>Sign out</Dropdown.Item>

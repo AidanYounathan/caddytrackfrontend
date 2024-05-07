@@ -3,11 +3,11 @@ import React from 'react'
 
 
 const Page = () => {
-  return (
-    <>
-    <ProfilePageComponent/>
-    </>
-  )
+    return (
+        <>
+            <ProfilePageComponent/>
+        </>
+    )
 }
 
 export default Page
