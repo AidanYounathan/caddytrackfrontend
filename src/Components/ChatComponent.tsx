@@ -15,17 +15,21 @@ const ChatComponent = () => {
 
   const data = useAppContext();
 
-  const [connection, setConnection] = useState<any>();
+  const [connection, setConnection] = useState<any>(null);
   const [messages, setMessages] = useState<IMsg[]>([]);
   const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
 
     if(data.user != ""){
-      JoinChatroom(data.user, "Fairway Chat");
+      if(connection == null)
+        JoinChatroom(data.user, "Fairway Chat");
     }
 
-  }, [data.user])
+    const chatbox = document.getElementById("chatbox") as Element;
+    chatbox.scrollTop = chatbox.scrollHeight;
+
+  }, [data.user, messages])
 
   const JoinChatroom = async (username:string, chatroom:string) => {
 
@@ -51,16 +55,13 @@ const ChatComponent = () => {
     }
   }
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     try
     {
-      connection.invoke("SendMessage", message);
-
+      await connection.invoke("SendMessage", message);
       const input = document.getElementById("input") as HTMLInputElement; // Reset text input
       input.value = "";
 
-      const elem = document.getElementById("chatbox") as Element;
-      elem.scrollTop = elem.scrollHeight+100;
     }
     catch(e){
       console.log(e);
@@ -78,7 +79,7 @@ const ChatComponent = () => {
         { // Messages spawnpoint
           messages.map((msg:IMsg, index) => {
             return( // User with a different name message element
-              <MessageComponent message={msg} BlankPfp={index > 0 && messages[index - 1].username != msg.username} key={index}></MessageComponent>
+              <MessageComponent message={msg} BlankPfp={(index > 0 && messages[index - 1].username != msg.username) || index == 0} key={index}></MessageComponent>
             );
 
           })

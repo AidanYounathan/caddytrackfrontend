@@ -11,7 +11,7 @@ interface props {
 
 export const MessageComponent = (props: props) => {
 
-    const [messagePfp, setMessagePfp] = useState<string>("");
+    const [messagePfp, setMessagePfp] = useState<string>(defaultPfp.src);
 
     useEffect(() => {
         getPfp(props.message.username);
