@@ -27,8 +27,13 @@ export interface ITrackerModel {
 }
 
 export interface IUserInfo {
-    UserID: number,
-    Username: string,
-    ProfilePicture: string,
+    userID: number,
+    username: string,
+    profilePicture: string,
     trackers: ITrackerModel[]
+}
+
+export interface IMsg {
+    msg: string
+    username: string
 }
