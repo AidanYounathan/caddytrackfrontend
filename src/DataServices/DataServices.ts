@@ -100,8 +100,8 @@ const GetUserData = async (user:string) => {
         return data;
     }
     catch(e){
-        console.log("Damn");
-        return null;
+        console.log("Cold not get user data for "+user);
+        return {} as IUserInfo;
     }
 }
 
