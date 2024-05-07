@@ -1,6 +1,5 @@
 'use client'
 
-import React, { use, useState } from 'react'
 import Image from 'next/image'
 import logo from '@/Assets/LOGO.png'
 import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react'
@@ -34,7 +33,7 @@ const NavbarComponent = () => {
         arrowIcon={false}
         inline
         label={
-          <Image className='w-14 mr-2 lg:w-16 h-auto rounded-full' src={data.userInfo.ProfilePicture == null ? defaultPFP : data.userInfo.ProfilePicture} alt='' />
+          <Image className='w-14 mr-2 lg:w-16 h-auto rounded-full' src={data.userInfo.profilePicture == "" || data.userInfo.profilePicture == null ? defaultPFP : data.userInfo.profilePicture} width={100} height={100} alt='' />
         }
       >
         <Dropdown.Header>

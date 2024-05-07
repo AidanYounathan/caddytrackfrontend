@@ -93,9 +93,28 @@ const DeleteTracker = async(name:string, id:number) => {
 }
 
 const GetUserData = async (user:string) => {
-    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/GetUserInfoByName/${user}`);
-    const data:IUserInfo = await promise.json();
-    return data;
+
+    try{
+        const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/GetUserInfoByName/${user}`);
+        const data:IUserInfo = await promise.json();
+        return data;
+    }
+    catch(e){
+        console.log("Cold not get user data for "+user);
+        return {} as IUserInfo;
+    }
 }
 
-export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData}
+const GetUserPfp = async (user:string) => {
+    try{
+        const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/GetUserPfp/${user}`);
+        const data:string = await promise.text();
+        return data;
+    }
+    catch(e){
+        console.log(e);
+        return "";
+    }
+}
+
+export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData, GetUserPfp}
