@@ -2,6 +2,7 @@
 import { GetUserPfp } from '@/DataServices/DataServices'
 import { IMsg } from '@/DataServices/Interfaces/Interfaces'
 import React, { useEffect, useState } from 'react'
+import defaultPfp from "../../public/defaultPFP.jpg";
 
 interface props {
     message: IMsg
@@ -22,8 +23,9 @@ export const MessageComponent = (props: props) => {
         if(pfp != null && pfp != ""){
           setMessagePfp(pfp);
         }
-        else
-          setMessagePfp('../../public/defaultPFP.jpg');
+        else{
+          setMessagePfp(defaultPfp.src);
+        }
     }    
 
 if(props.BlankPfp) 
