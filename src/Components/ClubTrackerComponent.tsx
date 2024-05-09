@@ -10,16 +10,23 @@ type iObject = {
 
 const ClubTrackerComponent = (props: iObject) => {
   return (
-    <div className='flex justify-between text-white'>
-      <p>{props.name}</p>
-      <p>{props.stock}</p>
-      <p>{props.max}</p>
-      <p>{props.confidence}</p>
+    <>
+    <div className='grid grid-cols-5  pt-3 ml-28 '>
+      <div><p>{props.name}</p></div>
+      <div className='ml-[17%]'><p>{props.stock}</p></div>
+      <div className='ml-[30%]'><p>{props.max}</p></div>
+      <div className='text-center'><p>{props.confidence}</p></div>
+      <div className='flex justify-center'><Button color="blue">Edit Club</Button></div>
       
-      <Button color="blue">Edit Club</Button>
-      <hr className=" h-[2px] bg-white" />
+      
+      
+      
+      
+      
+      
     </div>
-    
+    <hr className="mt-3 h-[2px] bg-white" />
+    </>
   )
 }
 

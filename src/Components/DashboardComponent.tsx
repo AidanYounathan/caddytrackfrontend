@@ -51,10 +51,13 @@ const DashboardComponent = () => {
 
     return (
         <div>
-            <Button color="blue" onClick={() => setOpenModal(true)}>
-                Add Club
-            </Button>
-            <div className="mx-[10%] mt-12 bg-[#274632] rounded-lg min-h-[50vh] lg:text-[40px] text-white">
+            <div className=' flex justify-center mt-5'>
+                <Button color="blue" onClick={() => setOpenModal(true)}>
+                    Add Club
+                </Button>
+            </div>
+            
+            <div className="mx-[10%] mt-5 bg-[#d0d1d1] opacity-[98%] rounded-lg min-h-[50vh] lg:text-[40px] ">
                 <div className="flex  justify-evenly pt-3">
                     <p>Club Name:</p>
                     <p>Stock Yardage:</p>
@@ -65,7 +68,7 @@ const DashboardComponent = () => {
                 <hr className=" h-[2px] bg-white" />
 
                 {
-                   (data.userInfo.trackers == null || data.userInfo.trackers.length == 0) ? <p>No Clubs added yet!</p> : data.userInfo.trackers.map(e => {
+                   (data.userInfo.trackers == null || data.userInfo.trackers.length == 0) ? <p className='text-center mt-3'>No Clubs added yet!</p> : data.userInfo.trackers.map(e => {
                         return(
                             <ClubTrackerComponent key={e.id} name={e.name} stock={e.stockYardage} max={e.maxYardage} confidence={e.confidenceLevel}></ClubTrackerComponent>
                         ); 

@@ -1,0 +1,6 @@
+.DashBG {
+    background-image: url('../../Assets//dashboard.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
