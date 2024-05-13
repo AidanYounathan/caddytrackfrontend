@@ -33,7 +33,7 @@ const NavbarComponent = () => {
         arrowIcon={false}
         inline
         label={
-          <Image className='w-14 mr-2 lg:w-16 h-14 lg:h-16 object-cover  rounded-full' src={data.userInfo.profilePicture == "" || data.userInfo.profilePicture == null ? defaultPFP : data.userInfo.profilePicture} width={100} height={100} alt='' />
+          <Image className='w-14 mr-2 lg:w-16 h-14 lg:h-16  rounded-full' src={data.userInfo.profilePicture == "" || data.userInfo.profilePicture == null ? defaultPFP : data.userInfo.profilePicture} width={100} height={100} alt='' />
         }
       >
         <Dropdown.Header>

@@ -33,7 +33,7 @@ if(props.BlankPfp)
     <div>
         
     <div className='flex pt-4'>
-        <img className='w-12 mr-2 lg:w-12 h-auto rounded-full' src={messagePfp} width={100} height={100} alt='' />
+        <img className='w-12 h-12 mr-2 lg:w-12 lg:h-12  h-auto rounded-full' src={messagePfp} width={100} height={100} alt='' />
         <div>
         <h1 className='font-bold'>{props.message.username}</h1>
         <p> {props.message.msg} </p>
