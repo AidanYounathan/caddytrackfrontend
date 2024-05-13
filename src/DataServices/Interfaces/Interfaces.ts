@@ -42,4 +42,5 @@ export interface IUserInfo {
 export interface IMsg {
     msg: string
     username: string
+    pfp: string
 }

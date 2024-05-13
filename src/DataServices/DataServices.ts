@@ -64,14 +64,15 @@ const GetTrackers = async(name: string) => {
     return data;
 }
 
-const EditTracker = async(name:string, id:number) => {
+const EditTracker = async(name:string, id:number, update:TrackerDTO) => {
 
     const promise = await fetch(`https://caddytrackapi.azurewebsites.net/TrackerController/EditTracker/${name}/${id}`, {
         method:'PATCH',
         headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: ''
+        body: JSON.stringify(update)
     });
     const data = await promise.json();
     return data;
@@ -117,7 +118,18 @@ const GetUserPfp = async (user:string) => {
     }
 }
 
-const EditUser = async(update:UpdateUserDTO) => {
+const EditUser = async(name:string, update:UpdateUserDTO) => {
+
+    const promise = await fetch(`https://caddytrackapi.azurewebsites.net/UserController/UpdateUser/${name}`, {
+        method:'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(update)
+    });
+    const data = await promise.json();
+    return data;
 
 }
 
