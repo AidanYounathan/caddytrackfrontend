@@ -18,23 +18,27 @@ const NavbarComponent = () => {
       router.push("/Login");
     }
 
+    function profilePage() {
+      router.push("/Profile");
+    }
+
     return (
     <Navbar fluid className='bg-[#cccccc] shadow-lg bg-opacity-50' >
     <Navbar.Brand >
       <Image src={logo} className="mr-2 w-14 lg:w-16 h-auto" alt="Caddy Track Logo"/>
-      <span className="self-center whitespace-nowrap text-3xl font-semibold dark:text-white">CaddyTrack</span>
+      <span className="self-center whitespace-nowrap text-3xl font-bold TxtGr dark:text-white">CaddyTrack</span>
     </Navbar.Brand>
     <div className="flex md:order-2">
       <Dropdown
         arrowIcon={false}
         inline
         label={
-          <Image className='w-14 mr-2 lg:w-16 h-auto rounded-full' src={data.userInfo.profilePicture == "" || data.userInfo.profilePicture == null ? defaultPFP : data.userInfo.profilePicture} width={100} height={100} alt='' />
+          <Image className='w-14 mr-2 lg:w-16 h-14 lg:h-16  rounded-full' src={data.userInfo.profilePicture == "" || data.userInfo.profilePicture == null ? defaultPFP : data.userInfo.profilePicture} width={100} height={100} alt='' />
         }
       >
         <Dropdown.Header>
           <span className="block text-sm">{data.user}</span>
-          <span className="block truncate text-sm font-medium">{'user@gmail.com'}</span>
+          <span className="block truncate text-sm font-medium cursor-pointer"  onClick={()=> profilePage()}>{'Profile Page'}</span>
         </Dropdown.Header>
         
         <Dropdown.Item onClick={signOut}>Sign out</Dropdown.Item>

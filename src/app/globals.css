@@ -58,3 +58,10 @@ body {
 .NavBG {
   background-color: rgba(224, 224, 224, .55);
 }
+
+.TxtGr {
+  background: -webkit-linear-gradient(360deg,#255339, #166D3B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
