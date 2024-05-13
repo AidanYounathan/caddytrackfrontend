@@ -5,6 +5,12 @@ export interface CreateAccountDTO {
     ProfilePicture: string
 }
 
+export interface UpdateUserDTO{
+    Username: string
+    Password: string
+    ProfilePicture: string
+}
+
 export interface LoginDTO {
     Username: string
     Password: string

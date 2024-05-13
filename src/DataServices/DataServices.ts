@@ -1,4 +1,4 @@
-import { CreateAccountDTO, IUserInfo, LoginDTO, TrackerDTO } from "./Interfaces/Interfaces"
+import { CreateAccountDTO, IUserInfo, LoginDTO, TrackerDTO, UpdateUserDTO } from "./Interfaces/Interfaces"
 
 const Login = async (loginDTO : LoginDTO) => {
     
@@ -116,5 +116,10 @@ const GetUserPfp = async (user:string) => {
         return "";
     }
 }
+
+const EditUser = async(update:UpdateUserDTO) => {
+
+}
+
 
 export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData, GetUserPfp}
