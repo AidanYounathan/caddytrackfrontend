@@ -136,7 +136,8 @@ const EditUser = async(name:string, update:UpdateUserDTO) => {
 // Aidan Section Start?
 
     const getSearch = async(userInput:string ) =>{
-        const promise = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=golf%20in%20${userInput}&key=AIzaSyCadaIvQl97OhzFa26K9uHY1UMdgPnyLuo`)
+        const apiKey = process.env.GOOG_API_KEY as string;
+        const promise = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=golf%20in%20${userInput}&key=${apiKey}`)
         const data: Result = await promise.json();
         console.log(data)
         return data
