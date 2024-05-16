@@ -1,4 +1,4 @@
-import { CreateAccountDTO, IUserInfo, LoginDTO, TrackerDTO, UpdateUserDTO } from "./Interfaces/Interfaces"
+import { CreateAccountDTO, IUserInfo, LoginDTO, Result, TrackerDTO, UpdateUserDTO } from "./Interfaces/Interfaces"
 
 const Login = async (loginDTO : LoginDTO) => {
     
@@ -133,5 +133,16 @@ const EditUser = async(name:string, update:UpdateUserDTO) => {
 
 }
 
+// Aidan Section Start?
 
-export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData, GetUserPfp, EditUser}
+    const getSearch = async(userInput:string ) =>{
+        const promise = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=golf%20in%20${userInput}&key=AIzaSyCadaIvQl97OhzFa26K9uHY1UMdgPnyLuo`)
+        const data: Result = await promise.json();
+        console.log(data)
+        return data
+    }
+
+// End Aidan Section
+
+
+export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData, GetUserPfp}

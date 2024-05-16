@@ -44,3 +44,12 @@ export interface IMsg {
     username: string
     pfp: string
 }
+
+
+export  interface Result {
+    formatted_address:     string;
+    name:                  string;
+    rating:                number;
+    reference:             string;
+    price_level?:          number;
+}
