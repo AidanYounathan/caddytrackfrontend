@@ -18,13 +18,17 @@ const CourseSearchComponent = () => {
   const [openModal, setOpenModal] = useState(true);
   return (
     <>
-      <div className="bg-white opacity-95 rounded-xl py-5 mx-[10%] mt-4">
-        <button type="button" className="text-center underline " onClick={handleFavDrawerClick}>Favorites</button>
-        <h1 className="text-3xl text-center pb-4 tracking-wide">Find A Course</h1>
-        <div className='flex justify-center'>
-          <TextInput type="search" className='w-2/4' rightIcon={RiSearchLine} placeholder="Enter Location" required />
+      <div className="bg-white opacity-95 rounded-xl py-5 sm:mx-[2%] md:mx-[5%] lg:mx-[10%] mt-4 flex justify-center">
+   
+        <div className='w-4/5 md:w-3/5 lg:w-2/5 '>
+          <button type="button" className=" underline " onClick={handleFavDrawerClick}>Favorites</button>
+          <h1 className="text-3xl text-center pb-4 tracking-wide">Find A Course</h1>
+          <div className='flex justify-center'>
+            <TextInput type="search" className='w-full' rightIcon={RiSearchLine} placeholder="Enter Location" required />
+          </div>
         </div>
-        
+     
+
       </div>
 
 
@@ -39,7 +43,7 @@ const CourseSearchComponent = () => {
 
 
 
-    {/* Start Drawer */}
+      {/* Start Drawer */}
       <div id="drawer-navigation" className={`fixed top-0 bg-[rgba(238,238,238,0.9)] left-0 z-40 w-full lg:w-[420px] h-screen p-4 overflow-y-auto transition-transform dark:bg-gray-800 ${favClassName}`}>
         <p id="drawer-navigation-label" className=" text-[2.8rem] font-bold">Bookmarked</p>
         <button onClick={handleFavDrawerClick} type="button" className=" bg-transparent  hover:text-gray-500 absolute top-6 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
