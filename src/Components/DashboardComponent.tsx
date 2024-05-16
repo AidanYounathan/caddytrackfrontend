@@ -118,7 +118,7 @@ const DashboardComponent = () => {
                 </Button>
             </div>
             
-            <div className="mx-[10%] mt-5 bg-[#d0d1d1] opacity-[98%] rounded-lg min-h-[50vh] lg:text-[40px] ">
+            <div className="mx-[10%] mt-5 bg-[#d0d1d1] opacity-[98%] rounded-lg min-h-[50vh] lg:text-[40px] overflow-y-scroll max-h-96">
                 <div className="flex  justify-evenly pt-3">
                     <p>Club Name:</p>
                     <p>Stock Yardage:</p>
