@@ -1,12 +1,10 @@
 
 import React, { useEffect, useState } from 'react'
-import defaultPFP from '../../public/defaultPFP.jpg'
-import Image from 'next/image'
 import { useAppContext } from '@/Context/Context'
 import { useRouter } from 'next/navigation'
 import { Button, Label, Modal, RangeSlider, TextInput } from "flowbite-react";
 import ClubTrackerComponent from "./ClubTrackerComponent";
-import { AddTracker, GetTrackers, GetUserData } from '@/DataServices/DataServices'
+import { AddTracker } from '@/DataServices/DataServices'
 import { ITrackerModel, TrackerDTO } from '@/DataServices/Interfaces/Interfaces'
 
 const DashboardComponent = () => {

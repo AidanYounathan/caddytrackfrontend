@@ -6,7 +6,7 @@ import { TextInput } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
 import { PiPaperPlaneRightBold, PiPlusBold } from 'react-icons/pi'
 import { MessageComponent } from './MessageComponent'
-import defaultPfp from "../../public/defaultPFP.jpg";
+import defaultPfp from  '../../public/defaultPFP.jpg';
 import { GetUserPfp } from '@/DataServices/DataServices'
 
 //JoinChatroom(data.user, "Chat")

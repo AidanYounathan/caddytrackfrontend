@@ -134,4 +134,4 @@ const EditUser = async(name:string, update:UpdateUserDTO) => {
 }
 
 
-export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData, GetUserPfp}
+export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData, GetUserPfp, EditUser}
