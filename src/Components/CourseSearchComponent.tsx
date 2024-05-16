@@ -1,10 +1,25 @@
 import { TextInput, Button } from 'flowbite-react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { RiSearchLine } from 'react-icons/ri'
 import { useState } from "react";
+import { getSearch } from '@/DataServices/DataServices';
+import { Result } from '@/DataServices/Interfaces/Interfaces';
 
 
 const CourseSearchComponent = () => {
+
+  const [userInput, setUserInput] = useState<string>("Stockton");
+  const [courseData, setCourseData] = useState<Result>();
+
+  const handleSearch = (userInput: string) => {
+    getSearch(userInput);
+  }
+
+
+  useEffect(() => {
+    handleSearch(userInput);
+  },[userInput])
+
 
   const [favClassName, setFavClassName] = useState<string>("-translate-x-full");
   const handleFavDrawerClick = () => {
@@ -24,7 +39,7 @@ const CourseSearchComponent = () => {
           <button type="button" className=" underline " onClick={handleFavDrawerClick}>Favorites</button>
           <h1 className="text-3xl text-center pb-4 tracking-wide">Find A Course</h1>
           <div className='flex justify-center'>
-            <TextInput type="search" className='w-full' rightIcon={RiSearchLine} placeholder="Enter Location" required />
+            <TextInput type="search" className='w-full' rightIcon={RiSearchLine} placeholder="Enter Location" required onKeyDown={(e:| React.KeyboardEvent<HTMLInputElement> | React.ChangeEvent<HTMLInputElement>) => {if ((e as React.KeyboardEvent<HTMLInputElement>).key === "Enter") {setUserInput((e as React.ChangeEvent<HTMLInputElement>).target.value);}}} />
           </div>
         </div>
      
