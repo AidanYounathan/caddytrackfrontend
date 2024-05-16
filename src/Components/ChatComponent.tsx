@@ -72,8 +72,7 @@ const ChatComponent = () => {
     try
     {
       await connection.invoke("SendMessage", message);
-      const input = document.getElementById("input") as HTMLInputElement; // Reset text input
-      input.value = "";
+      setMessage('');
     }
     catch(e){
       console.log(e);
@@ -100,7 +99,7 @@ const ChatComponent = () => {
         </div>
 {/* Message Box */}
 
-        <TextInput className='pl-10 pr-10 mt-10' id="input" type="text" icon={PiPlusBold} rightIcon={PiPaperPlaneRightBold} placeholder="Enter Text Here" onChange={(e) => {setMessage(e.target.value)}} onKeyDown={
+        <TextInput className='pl-10 pr-10 mt-10' id="input" type="text" icon={PiPlusBold} rightIcon={PiPaperPlaneRightBold} placeholder="Enter Text Here" value={message} onChange={(e) => {setMessage(e.target.value)}} onKeyDown={
           (e) => {
             if(e.key == "Enter"){
               sendMessage();
