@@ -1,9 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import defaultPFP from '../../public/defaultPFP.jpg'
-import Image from 'next/image'
 import { useAppContext } from '@/Context/Context'
-import { useRouter } from 'next/navigation'
 import { Button, Label, Modal, RangeSlider, TextInput } from "flowbite-react";
 import ClubTrackerComponent from "./ClubTrackerComponent";
 import { AddTracker, DeleteTracker, EditTracker, GetTrackers, GetUserData } from '@/DataServices/DataServices'
@@ -62,7 +59,7 @@ const DashboardComponent = () => {
 
         if(data.user != "" && await AddTracker(data.user, newTracker)){
             data.resetUserInfo();
-            setOpenModal(false);
+            onCloseModal();
         }
         else{
             setErrorMsg("Your Club could not be added. Please try again.");
@@ -78,6 +75,7 @@ const DashboardComponent = () => {
         setEditID(id);
 
         setOpenEditModal(true);
+        setErrorMsg('');
     }
 
     async function editTracker(id:number) {
@@ -157,6 +155,7 @@ const DashboardComponent = () => {
                                 id="name"
                                 type="text"
                                 placeholder="Enter Club Name"
+                                value={clubName}
                                 onChange={(event) => setClubName(event.target.value)}
                                 required
                             />
@@ -171,6 +170,7 @@ const DashboardComponent = () => {
                                 type="number"
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"
                                 maxLength={3}
+                                value={stock != 0 ? stock : ''}
                                 placeholder="Enter Yardage Number"
                                 onChange={(event) => setStock(Number(event.target.value))}
                                 required
@@ -185,6 +185,7 @@ const DashboardComponent = () => {
                                 id="max"
                                 maxLength={3}
                                 type="number"
+                                value={max != 0 ? max : ''}
                                 placeholder="Enter Yardage Number"
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"
                                 required
@@ -219,7 +220,7 @@ const DashboardComponent = () => {
                             Add A Club
                         </h3>
                         <p className='text-red-500'>{errorMsg}</p>
-                        
+
                         <div>
                             <div className="mb-2 block">
                                 <Label htmlFor="name" value="Stock/Average Yardage" />
