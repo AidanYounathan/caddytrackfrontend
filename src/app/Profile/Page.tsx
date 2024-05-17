@@ -2,7 +2,7 @@ import NavbarComponent from '@/Components/NavBarComponent'
 import React from 'react'
 import '@/app/Profile/styles.css'
 
-const Page = () => {
+const page = () => {
   return (
     <div className='h-[100vh] DashBG'>
         <NavbarComponent/>
@@ -11,4 +11,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default page
