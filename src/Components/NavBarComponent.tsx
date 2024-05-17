@@ -44,7 +44,7 @@ const NavbarComponent = () => {
       </Dropdown>
       <Navbar.Toggle />
     </div>
-    <Navbar.Collapse className='md:ml-[-10%] lg:ml-[-7%]'>
+    <Navbar.Collapse className=' lg:ml-[-11%] xl:ml-[-8%]'>
       <Navbar.Link href="Dashboard" className='text-xl'>Home</Navbar.Link>
       <Navbar.Link href="CourseSearch" className='text-xl'>Course Search</Navbar.Link>
       <Navbar.Link href="ChatPage" className='text-xl'>Chat</Navbar.Link>

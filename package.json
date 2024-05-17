@@ -11,6 +11,7 @@
   "dependencies": {
     "@microsoft/signalr": "^8.0.0",
     "@vercel/analytics": "^1.2.2",
+    "dotenv": "^16.4.5",
     "flowbite-react": "^0.7.5",
     "framer-motion": "^11.1.9",
     "next": "14.1.4",
