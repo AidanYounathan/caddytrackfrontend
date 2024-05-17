@@ -3,7 +3,7 @@ import React from 'react'
 import '@/app/Profile/styles.css'
 import ProfilePageComponent from '@/Components/ProfilePageComponent'
 
-const Page = () => {
+const page = () => {
   return (
     <div className='h-[100vh] DashBG'>
         <NavbarComponent/>
@@ -15,4 +15,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default page
