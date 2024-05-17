@@ -6,6 +6,7 @@ import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react'
 import defaultPFP from '../../public/defaultPFP.jpg'
 import { useRouter } from 'next/navigation'
 import { useAppContext } from '@/Context/Context'
+import Link from 'next/link'
 
 
 const NavbarComponent = () => {
@@ -38,7 +39,10 @@ const NavbarComponent = () => {
       >
         <Dropdown.Header>
           <span className="block text-sm">{data.user}</span>
-          <span className="block truncate text-sm font-medium cursor-pointer"  onClick={()=> profilePage()}>{'Profile Page'}</span>
+          {/* <span className="block truncate text-sm font-medium cursor-pointer"  onClick={()=> profilePage()}>{'Profile Page'}</span> */}
+          {/* <span className="block truncate text-sm font-medium cursor-pointer"  onClick={()=> router.push('/Profile')}>{'Profile Page'}</span> */}
+          {/* <Dropdown.Item as={Link} href="Profile">Profile</Dropdown.Item> */}
+          <Dropdown.Item onClick={profilePage}>Profile</Dropdown.Item>
         </Dropdown.Header>
         
         <Dropdown.Item onClick={signOut}>Sign out</Dropdown.Item>

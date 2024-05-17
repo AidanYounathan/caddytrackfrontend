@@ -1,13 +1,18 @@
+'use client'
+
 import ProfilePageComponent from '@/Components/ProfilePageComponent'
 import React from 'react'
 
 
-const Page = () => {
-    return (
-        <>
-            <ProfilePageComponent/>
-        </>
-    )
-}
+export default function Home() {
 
-export default Page
+    return (
+      <>
+
+      <ProfilePageComponent/>
+
+      
+      </>
+     
+    );
+  }
