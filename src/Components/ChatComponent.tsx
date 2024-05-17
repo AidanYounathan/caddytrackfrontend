@@ -15,19 +15,24 @@ const ChatComponent = () => {
 
   const data = useAppContext();
 
+  const [loaded, setLoaded] = useState<boolean>(false);
   const [connection, setConnection] = useState<any>(null);
   const [messages, setMessages] = useState<IMsg[]>([]);
   const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
 
-    if(data.user != ""){
-      if(connection == null)
-        JoinChatroom(data.user, "Fairway Chat");
+    if(loaded){
+      if(data.user != ""){
+        if(connection == null)
+          JoinChatroom(data.user, "Fairway Chat");
+      }
+  
+      const chatbox = document.getElementById("chatbox") as Element;
+      chatbox.scrollTop = chatbox.scrollHeight;
     }
-
-    const chatbox = document.getElementById("chatbox") as Element;
-    chatbox.scrollTop = chatbox.scrollHeight;
+    else
+      setLoaded(true);
 
   }, [data.user, messages])
 
@@ -72,8 +77,7 @@ const ChatComponent = () => {
     try
     {
       await connection.invoke("SendMessage", message);
-      const input = document.getElementById("input") as HTMLInputElement; // Reset text input
-      input.value = "";
+      setMessage('');
     }
     catch(e){
       console.log(e);
@@ -100,7 +104,7 @@ const ChatComponent = () => {
         </div>
 {/* Message Box */}
 
-        <TextInput className='pl-10 pr-10 mt-10' id="input" type="text" icon={PiPlusBold} rightIcon={PiPaperPlaneRightBold} placeholder="Enter Text Here" onChange={(e) => {setMessage(e.target.value)}} onKeyDown={
+        <TextInput className='pl-10 pr-10 mt-10' id="input" type="text" icon={PiPlusBold} rightIcon={PiPaperPlaneRightBold} placeholder="Enter Text Here" value={message} onChange={(e) => {setMessage(e.target.value)}} onKeyDown={
           (e) => {
             if(e.key == "Enter"){
               sendMessage();

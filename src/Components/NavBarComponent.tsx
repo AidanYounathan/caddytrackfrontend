@@ -15,7 +15,6 @@ const NavbarComponent = () => {
 
     function signOut() {
       data.logout();
-      router.push("/Login");
     }
 
     function profilePage() {

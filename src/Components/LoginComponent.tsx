@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Label, TextInput, Button, FileInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import { CreateAccountDTO, LoginDTO } from "../DataServices/Interfaces/Interfaces";
@@ -9,21 +9,24 @@ import { useAppContext } from "@/Context/Context";
 
 const LoginComponent = () => {
 
-  const {setUser} = useAppContext();
-
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [image, setImage] = useState<any>('');
 
   const [switchBool, setSwitchBool] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const router = useRouter();
   const data = useAppContext();
 
+  useEffect(() => {
+    setError(data.error);
+    data.setError('');
+  }, [])
+
     const changeBool = () => {
       setSwitchBool(!switchBool)
-      setError(false);
+      setError('');
     }
   
     const handleSubmit = async () => {
@@ -38,10 +41,11 @@ const LoginComponent = () => {
   
         if(result.token != undefined){
           router.push("/Dashboard");
+          data.setToken(result);
           getUserData();
         }
         else{
-          setError(true);
+          setError("Username or password incorrect. Please try again.");
         }
       }
       else
@@ -49,7 +53,7 @@ const LoginComponent = () => {
         // Create Acc
   
         if(username == "" || password == ""){
-          setError(true);
+          setError("Please enter a username and password.");
           return;
         }
   
@@ -66,7 +70,7 @@ const LoginComponent = () => {
           changeBool();
         }
         else{
-          setError(true);
+          setError("Could not create your account. Please try again.");
         }
       }
     }
@@ -96,8 +100,7 @@ const LoginComponent = () => {
     <div className="bg-white opacity-95 rounded-xl py-5">
       <p className="text-3xl text-center pb-4 tracking-wide">{switchBool ? "Login" : "Create Account"}</p>
 
-      <h1 className={switchBool ? "text-red-600 text-center px-2" : "hidden"}>{error ? "Username or Password incorrect. Please try again." : ""}</h1>
-      <h1 className={!switchBool ? "text-red-600 text-center" : "hidden"}>{error ? "Could not create your account. Please try again." : ""}</h1>
+      <h1 className= "text-red-600 text-center px-2">{error}</h1>
       
       <form className="flex flex-col gap-4">
             <div className="mx-auto">

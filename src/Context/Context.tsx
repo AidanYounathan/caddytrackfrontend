@@ -2,16 +2,21 @@
 import { GetUserData } from "@/DataServices/DataServices";
 import { IUserInfo } from "@/DataServices/Interfaces/Interfaces";
 import { createContext, useContext, useEffect, useState } from "react"
+import {useRouter, usePathname} from "next/navigation";
 export const Context = createContext<IContextValue>({} as IContextValue);
 
 interface IContextValue {
-    user: string,
-    setUser: (user: string) => void,
+    user: string
+    setUser: (user: string) => void
     userInfo: IUserInfo,
     setUserInfo: (user: IUserInfo) => void
     setUserItems: (n: string) => void
     logout: () => void
     resetUserInfo:() => void
+    setToken: (n:string) => void
+    checkToken: () => void
+    error: string
+    setError: (n:string) => void
 }
 
 
@@ -23,6 +28,9 @@ export const AppWrapper = ({
 
     const [user, setUser] = useState<string>("");
     const [userInfo, setUserInfo] = useState<IUserInfo>({} as IUserInfo);
+    const [error, setError] = useState<string>('');
+    const router = useRouter();
+    const path = usePathname();
 
     async function getSessionStorage() {
 
@@ -32,6 +40,7 @@ export const AppWrapper = ({
             setUser(item);
             setUserInfo(await GetUserData(item));
         }
+        
 
     }
 
@@ -45,6 +54,7 @@ export const AppWrapper = ({
         sessionStorage.clear();
         setUser("");
         setUserInfo({} as IUserInfo);
+        router.push("/Login");
     }
 
     async function resetUserInfo() {
@@ -52,12 +62,29 @@ export const AppWrapper = ({
         setUserInfo(d);
     }
 
+    function setToken(n: string){
+        sessionStorage.setItem("token", n);
+    }
+
+    function checkToken(){
+        if(path != "/Login" && path != "/"){
+
+            const token = sessionStorage.getItem("token");
+            if(token  == undefined){
+                router.push("/Login");
+                setError("Please Login.");
+            }
+
+        }
+    }
+
     useEffect(() => {
         getSessionStorage();
+        checkToken();
     }, [])
 
     return (
-        <Context.Provider value={{user, setUser, userInfo, setUserInfo, setUserItems, logout, resetUserInfo}}>
+        <Context.Provider value={{user, setUser, userInfo, setUserInfo, setUserItems, logout, resetUserInfo, setToken, checkToken, error, setError}}>
             {children}
         </Context.Provider>
     )
