@@ -15,19 +15,24 @@ const ChatComponent = () => {
 
   const data = useAppContext();
 
+  const [loaded, setLoaded] = useState<boolean>(false);
   const [connection, setConnection] = useState<any>(null);
   const [messages, setMessages] = useState<IMsg[]>([]);
   const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
 
-    if(data.user != ""){
-      if(connection == null)
-        JoinChatroom(data.user, "Fairway Chat");
+    if(loaded){
+      if(data.user != ""){
+        if(connection == null)
+          JoinChatroom(data.user, "Fairway Chat");
+      }
+  
+      const chatbox = document.getElementById("chatbox") as Element;
+      chatbox.scrollTop = chatbox.scrollHeight;
     }
-
-    const chatbox = document.getElementById("chatbox") as Element;
-    chatbox.scrollTop = chatbox.scrollHeight;
+    else
+      setLoaded(true);
 
   }, [data.user, messages])
 

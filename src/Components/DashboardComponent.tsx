@@ -1,10 +1,10 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useAppContext } from '@/Context/Context'
 import { Button, Label, Modal, RangeSlider, TextInput } from "flowbite-react";
 import ClubTrackerComponent from "./ClubTrackerComponent";
-import { AddTracker, DeleteTracker, EditTracker, GetTrackers, GetUserData } from '@/DataServices/DataServices'
-import { ITrackerModel, TrackerDTO } from '@/DataServices/Interfaces/Interfaces'
+import { AddTracker, DeleteTracker, EditTracker } from '@/DataServices/DataServices'
+import { TrackerDTO } from '@/DataServices/Interfaces/Interfaces'
 
 const DashboardComponent = () => {
 
@@ -196,7 +196,7 @@ const DashboardComponent = () => {
                         <div className="">
                             <Label htmlFor="default-range" value="Confidence Level" />
                             <div className="">
-                                <RangeSlider max={10} min={1} defaultValue={5} id="default-range" onChange={(event) => { console.log(confidence), setConfidence(Number(event.target.value)) }} />
+                                <RangeSlider max={10} min={1} id="default-range" onChange={(event) => { console.log(confidence), setConfidence(Number(event.target.value)) }} />
                                 <p>{confidence}</p>
                             </div>
                             
@@ -272,7 +272,7 @@ const DashboardComponent = () => {
                         <div className="">
                             <Label htmlFor="default-range" value="Confidence Level" />
                             <div className="">
-                                <RangeSlider max={10} min={1} defaultValue={5} value={editConfidence} id="default-range" onChange={(event) => { console.log(confidence), setEditConfidence(Number(event.target.value)) }} />
+                                <RangeSlider max={10} min={1} value={editConfidence} id="default-range" onChange={(event) => { console.log(confidence), setEditConfidence(Number(event.target.value)) }} />
                                 <p>{editConfidence}</p>
                             </div>
                             
