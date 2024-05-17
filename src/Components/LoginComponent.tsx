@@ -38,6 +38,7 @@ const LoginComponent = () => {
   
         if(result.token != undefined){
           router.push("/Dashboard");
+          data.setToken(result);
           getUserData();
         }
         else{

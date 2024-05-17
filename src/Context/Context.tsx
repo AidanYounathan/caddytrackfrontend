@@ -6,13 +6,15 @@ import {useRouter} from "next/navigation";
 export const Context = createContext<IContextValue>({} as IContextValue);
 
 interface IContextValue {
-    user: string,
-    setUser: (user: string) => void,
+    user: string
+    token: string
+    setUser: (user: string) => void
     userInfo: IUserInfo,
     setUserInfo: (user: IUserInfo) => void
     setUserItems: (n: string) => void
     logout: () => void
     resetUserInfo:() => void
+    setToken: (n: string) => void
 }
 
 
@@ -22,6 +24,7 @@ export const AppWrapper = ({
     children: React.ReactNode;
   }>) => {
 
+    const [token, setToken] = useState<string>("");
     const [user, setUser] = useState<string>("");
     const [userInfo, setUserInfo] = useState<IUserInfo>({} as IUserInfo);
     const router = useRouter();
@@ -34,6 +37,7 @@ export const AppWrapper = ({
             setUser(item);
             setUserInfo(await GetUserData(item));
         }
+        
 
     }
 
@@ -60,7 +64,7 @@ export const AppWrapper = ({
     }, [])
 
     return (
-        <Context.Provider value={{user, setUser, userInfo, setUserInfo, setUserItems, logout, resetUserInfo}}>
+        <Context.Provider value={{user, setUser, userInfo, setUserInfo, setUserItems, logout, resetUserInfo, token, setToken}}>
             {children}
         </Context.Provider>
     )
