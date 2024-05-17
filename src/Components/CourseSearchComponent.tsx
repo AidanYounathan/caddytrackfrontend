@@ -11,7 +11,7 @@ const CourseSearchComponent = () => {
   const [userInput, setUserInput] = useState<string>("Stockton");
   const [courseData, setCourseData] = useState<Result>();
 
-  const handleSearch = (userInput: string) => {
+  const handleSearch = (userInput: string = "Az" ) => {
     getSearch(userInput);
   }
 

@@ -6,10 +6,10 @@ config();
 const nextConfig = {
     async rewrites() {
       return [
-        {
-          source: '/api/:path*',
-          destination: 'https://maps.googleapis.com/:path*', // Proxy to Google Maps API
-        },
+        // {
+        //   source: '/api/:path*',
+        //   destination: 'https://maps.googleapis.com/:path*', // Proxy to Google Maps API
+        // },
       ];
     },
   };
