@@ -2,6 +2,7 @@
 import { GetUserData } from "@/DataServices/DataServices";
 import { IUserInfo } from "@/DataServices/Interfaces/Interfaces";
 import { createContext, useContext, useEffect, useState } from "react"
+import {useRouter} from "next/navigation";
 export const Context = createContext<IContextValue>({} as IContextValue);
 
 interface IContextValue {
@@ -23,6 +24,7 @@ export const AppWrapper = ({
 
     const [user, setUser] = useState<string>("");
     const [userInfo, setUserInfo] = useState<IUserInfo>({} as IUserInfo);
+    const router = useRouter();
 
     async function getSessionStorage() {
 
@@ -45,6 +47,7 @@ export const AppWrapper = ({
         sessionStorage.clear();
         setUser("");
         setUserInfo({} as IUserInfo);
+        router.push("/Login");
     }
 
     async function resetUserInfo() {
