@@ -1,18 +1,14 @@
-'use client'
-
-import ProfilePageComponent from '@/Components/ProfilePageComponent'
+import NavbarComponent from '@/Components/NavBarComponent'
 import React from 'react'
+import '@/app/Profile/styles.css'
 
+const Page = () => {
+  return (
+    <div className='h-[100vh] DashBG'>
+        <NavbarComponent/>
+        
+    </div>
+  )
+}
 
-export default function Home() {
-
-    return (
-      <>
-
-      <ProfilePageComponent/>
-
-      
-      </>
-     
-    );
-  }
+export default Page
