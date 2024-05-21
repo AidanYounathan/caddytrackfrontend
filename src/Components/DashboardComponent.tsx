@@ -1,10 +1,11 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAppContext } from '@/Context/Context'
 import { Button, Label, Modal, RangeSlider, TextInput } from "flowbite-react";
 import ClubTrackerComponent from "./ClubTrackerComponent";
 import { AddTracker, DeleteTracker, EditTracker } from '@/DataServices/DataServices'
 import { TrackerDTO } from '@/DataServices/Interfaces/Interfaces'
+import { Spinner } from "flowbite-react";
 
 const DashboardComponent = () => {
 
@@ -24,6 +25,14 @@ const DashboardComponent = () => {
     const [editConfidence, setEditConfidence] = useState<number>(5);
 
     const [errorMsg, setErrorMsg] = useState<string>("");
+
+    const [loaded, setLoaded] = useState<boolean>(false);
+
+    useEffect(() => {
+        if(data.userInfo.trackers != undefined){
+            setLoaded(true);
+        }
+    }, [data.userInfo.trackers])
 
     function onCloseModal() {
         setConfidence(5);
@@ -47,6 +56,14 @@ const DashboardComponent = () => {
 
         if(clubName == ""){
             setErrorMsg("Please name your Club");
+            return;
+        }
+        else if(stock > 999 || max > 999){
+            setErrorMsg("Your Stock and Max yardage may only have a maximum of 3 digits.");
+            return;
+        }
+        else if(stock < 0 || max < 0){
+            setErrorMsg("Your Stock and Max yardage cannot be negative.");
             return;
         }
 
@@ -82,6 +99,14 @@ const DashboardComponent = () => {
 
         if(editClubName == ""){
             setErrorMsg("Please name your Club");
+            return;
+        }
+        else if(editStock > 999 || editMax > 999){
+            setErrorMsg("Your Stock and Max yardage may only have a maximum of 3 digits.");
+            return;
+        }
+        else if(editStock < 0 || editMax < 0){
+            setErrorMsg("Your Stock and Max yardage cannot be negative.");
             return;
         }
 
@@ -128,6 +153,11 @@ const DashboardComponent = () => {
                 </div>
                 <hr className=" h-[2px] bg-white" />
 
+                <div className={`flex justify-center items-center p-20 ${loaded ? "hidden" : ""} `}>
+                <Spinner aria-label="Default status example" size="xl" />
+                </div>
+                
+                <div className={!loaded ? "hidden" : ""}>
                 {
                    (data.userInfo.trackers == null || data.userInfo.trackers.length == 0) ? <p className='text-center mt-3'>No Clubs added yet!</p> : data.userInfo.trackers.map(e => {
                         return(
@@ -135,6 +165,7 @@ const DashboardComponent = () => {
                         ); 
                    })
                 }
+                </div>
 
             </div>
 
@@ -169,7 +200,6 @@ const DashboardComponent = () => {
                                 id="stock"
                                 type="number"
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"
-                                maxLength={3}
                                 value={stock != 0 ? stock : ''}
                                 placeholder="Enter Yardage Number"
                                 onChange={(event) => setStock(Number(event.target.value))}
@@ -183,7 +213,6 @@ const DashboardComponent = () => {
                             </div>
                             <TextInput
                                 id="max"
-                                maxLength={3}
                                 type="number"
                                 value={max != 0 ? max : ''}
                                 placeholder="Enter Yardage Number"
@@ -223,7 +252,7 @@ const DashboardComponent = () => {
 
                         <div>
                             <div className="mb-2 block">
-                                <Label htmlFor="name" value="Stock/Average Yardage" />
+                                <Label htmlFor="name" value="Club Name" />
                             </div>
                             <TextInput
                                 id="name"
@@ -245,7 +274,6 @@ const DashboardComponent = () => {
                                 id="stock"
                                 type="number"
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"
-                                maxLength={3}
                                 placeholder="Enter Yardage Number"
                                 value={editStock != 0 ? editStock : ''}
                                 onChange={(event) => setEditStock(Number(event.target.value))}
@@ -259,7 +287,6 @@ const DashboardComponent = () => {
                             </div>
                             <TextInput
                                 id="max"
-                                maxLength={3}
                                 type="number"
                                 placeholder="Enter Yardage Number"
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"

@@ -51,10 +51,10 @@ export const AppWrapper = ({
     }
 
     function logout() {
+        router.push("/Login");
         sessionStorage.clear();
         setUser("");
         setUserInfo({} as IUserInfo);
-        router.push("/Login");
     }
 
     async function resetUserInfo() {

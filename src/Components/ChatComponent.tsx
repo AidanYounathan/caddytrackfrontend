@@ -8,6 +8,7 @@ import { PiPaperPlaneRightBold, PiPlusBold } from 'react-icons/pi'
 import { MessageComponent } from './MessageComponent'
 import defaultPfp from "../../public/defaultPFP.jpg";
 import { GetUserPfp } from '@/DataServices/DataServices'
+import { Spinner } from "flowbite-react";
 
 //JoinChatroom(data.user, "Chat")
 
@@ -16,6 +17,7 @@ const ChatComponent = () => {
   const data = useAppContext();
 
   const [loaded, setLoaded] = useState<boolean>(false);
+  const [joined, setJoined] = useState<boolean>(false);
   const [connection, setConnection] = useState<any>(null);
   const [messages, setMessages] = useState<IMsg[]>([]);
   const [message, setMessage] = useState<string>("");
@@ -45,6 +47,7 @@ const ChatComponent = () => {
         conn.on("JoinSpecificChat", async (username:string, msg:string) => {
           const pfp = await getPfp(username);
           setMessages(messages => [...messages, {username, msg, pfp}])
+          setJoined(true);
         })
 
         conn.on("ReceiveSpecificMessage", async (username:string, msg:string) => {
@@ -91,7 +94,10 @@ const ChatComponent = () => {
 
 {/* Message Box */}
         <div className='ml-5 overflow-y-scroll overflow-x-hidden max-h-80 min-h-80 break-normal' id="chatbox">
-
+          <div className={`flex flex-col space-y-4 justify-center items-center p-20 ${joined ? "hidden" : ""} `}>
+            <Spinner aria-label="Default status example" size="xl" />
+            <p className={`${data.user == "" ? "hidden" : ""}`}>Joining Fairway Chats as {data.user}...</p>
+          </div>
         { // Messages spawnpoint
           messages.map((msg:IMsg, index) => {
             return( // User with a different name message element
