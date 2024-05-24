@@ -1,0 +1,71 @@
+{
+    "type": "FeatureCollection",
+    "features":[
+        {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [-121.2691525, 37.9929562]
+            },
+            "properties": {
+              "name": "3737 N Wilson Way, Stockton, CA 95205",
+              "description": "Golf club in Stockton."
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [-121.2442466, 37.8030417]
+            },
+            "properties": {
+              "name": "305 N Union Rd, Manteca, CA 95337",
+              "description": "Golf club in Stockton."
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [-121.3572988, 37.9629065]
+            },
+            "properties": {
+              "name": "3800 Country Club Blvd, Stockton, CA 95204",
+              "description": "Golf club in Stockton."
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [-121.2309328, 37.9384339]
+            },
+            "properties": {
+              "name": "2237 Stagecoach Rd, Stockton, CA 95215",
+              "description": "Golf club in Stockton."
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [-121.3594345, 37.9785123]
+            },
+            "properties": {
+              "name": "3603 St Andrews Dr, Stockton, CA 95219",
+              "description": "Golf club in Stockton."
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [-121.1451225, 37.7221722]
+            },
+            "properties": {
+              "name": "1500 Ruess Rd, Ripon, CA 95366",
+              "description": "Golf club in Stockton."
+            }
+          }
+    ]
+}

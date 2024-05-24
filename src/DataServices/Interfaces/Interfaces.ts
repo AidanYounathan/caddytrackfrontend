@@ -46,10 +46,27 @@ export interface IMsg {
 }
 
 
-export  interface Result {
+export interface Result {
     formatted_address:     string;
     name:                  string;
     rating:                number;
     reference:             string;
     price_level?:          number;
+}
+
+export interface MapDots {
+    type:any
+    features: any[]
+}
+
+export interface Course {
+    type: any,
+    geometry: {
+      type: any,
+      coordinates: [any, any]
+    },
+    properties: {
+      name: any
+      description: any
+    }
 }
