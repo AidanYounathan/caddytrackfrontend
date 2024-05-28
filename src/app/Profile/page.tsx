@@ -3,6 +3,7 @@ import React from 'react'
 import '@/app/Profile/styles.css'
 import ProfilePageComponent from '@/Components/ProfilePageComponent'
 
+// stop being capital
 const page = () => {
   return (
     <div className='h-[100vh] DashBG'>
