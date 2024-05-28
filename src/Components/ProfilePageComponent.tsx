@@ -11,12 +11,17 @@ import {
   CreateAccountDTO,
   LoginDTO,
 } from "@/DataServices/Interfaces/Interfaces";
+import { EditUser } from "@/DataServices/DataServices";
 
 const ProfilePageComponent = () => {
   const data = useAppContext();
   const router = useRouter();
+
   const [image, setImage] = useState<any>("");
-  const [switchBool, setSwitchBool] = useState<boolean>(true);
+  const [newName, setNewName] = useState<string>(data.user);
+  const [password, setPassword] = useState<string>("");
+
+  const [res, setRes] = useState<boolean | null>(null);
 
   const handleFileSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     let reader = new FileReader();
@@ -30,9 +35,18 @@ const ProfilePageComponent = () => {
     }
   };
 
-  const handleForgot = () => {
-    router.push("/ForgotPassword");
-  };
+  const changeProfile = async () => {
+
+      const update = {
+        Username: newName,
+        Password: password,
+        ProfilePicture: image
+    }
+
+    const result = await EditUser(data.user, update);
+    setRes(result); 
+    data.setUserItems(newName);
+  }
 
   return (
     <>
@@ -57,12 +71,12 @@ const ProfilePageComponent = () => {
             />
           </div>
           <br />
-
+              <p className={res ? "text-green-400" : "text-red-600"}> { res != null ? {res} ? "Profile changed successfully!" : "Could not update your profile. Please try again" : ""} </p>
           <div>
             <div className="mb-2 block">
               <Label htmlFor="name" value="Change User Name" />
             </div>
-            <TextInput id="name" type="text" placeholder="New User Name" />
+            <TextInput id="name" type="text" placeholder="New User Name" value={newName} onChange={(e) => {setNewName(e.target.value); setRes(null)}} />
           </div>
 
           <br />
@@ -71,15 +85,15 @@ const ProfilePageComponent = () => {
             <div className="mb-2 block">
               <Label htmlFor="password" value="Change Password" />
             </div>
-            <TextInput id="password" type="text" placeholder="New Password" />
+            <TextInput id="password" type="text" placeholder="New Password" value={password} onChange={(e) => {setPassword(e.target.value); setRes(null)}} />
           </div>
 
           <div className=" mb-8 mx-auto block mt-4">
             <Label htmlFor="file-upload" value="Update Profile Picture" />
-            <FileInput id="file-upload" onChange={(e) => handleFileSubmit(e)} />
+            <FileInput id="file-upload" onChange={(e) => {handleFileSubmit(e); setRes(null)}} />
           </div>
           <div className="flex space-x-6 mb-4 mx-auto">
-            <Button className="w-36 text-white border-black" color="blue">
+            <Button className="w-36 text-white border-black" color="blue" onClick={changeProfile}>
               Submit
             </Button>
           </div>
