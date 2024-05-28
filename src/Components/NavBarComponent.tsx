@@ -21,9 +21,13 @@ const NavbarComponent = () => {
       router.push("/Profile");
     }
 
+    function home(){
+      router.push("/Dashboard");
+    }
+
     return (
     <Navbar fluid className='bg-[#cccccc] shadow-lg bg-opacity-50' >
-    <Navbar.Brand >
+    <Navbar.Brand onClick={home} className='cursor-pointer'>
       <Image src={logo} className="mr-2 w-14 lg:w-16 h-auto" alt="Caddy Track Logo"/>
       <span className="self-center whitespace-nowrap text-3xl font-bold TxtGr dark:text-white">CaddyTrack</span>
     </Navbar.Brand>
