@@ -125,7 +125,7 @@ const CourseSearchComponent = () => {
       <div className="bg-white opacity-95 rounded-xl p-10 py-5 sm:mx-[2%] md:mx-[5%] lg:mx-[10%] mt-4 flex flex-col justify-center items-center">
    
         <div className='w-4/5 md:w-3/5 lg:w-2/5 mb-6'>
-          <button type="button" className=" underline " onClick={handleFavDrawerClick}>Favorites</button>
+          {/* <button type="button" className=" underline " onClick={handleFavDrawerClick}>Favorites</button> */}
           <h1 className="text-3xl text-center pb-4 tracking-wide">Find A Course</h1>
           <div className='flex justify-center' ref={geocoderContainerRef}></div>
         </div>
