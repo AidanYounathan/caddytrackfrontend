@@ -135,6 +135,8 @@ const DashboardComponent = () => {
 
     }
 
+    
+
     return (
         <div>
             <div className=' flex justify-center mt-5'>
@@ -206,8 +208,13 @@ const DashboardComponent = () => {
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"
                                 value={stock != 0 ? stock : ''}
                                 placeholder="Enter Yardage Number"
-                                onChange={(event) => setStock(Number(event.target.value))}
+                                onChange={(event) => {const value = event.target.value;
+                                    if (value.length <= 3) {
+                                        setStock(Number(value));
+                                    }else{event.target.value = value.slice(0, 3);}}}
+                                
                                 required
+                                
                             />
                         </div>
 
@@ -225,7 +232,10 @@ const DashboardComponent = () => {
                                 placeholder="Enter Yardage Number"
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"
                                 required
-                                onChange={(event) => setMax(Number(event.target.value))}
+                                onChange={(event) => {const value = event.target.value;
+                                    if (value.length <= 3) {
+                                        setMax(Number(value));
+                                    }else{event.target.value = value.slice(0, 3);}}}
                             />
                         </div>
 
