@@ -45,7 +45,8 @@ const ProfilePageComponent = () => {
 
     const result = await EditUser(data.user, update);
     setRes(result); 
-    data.setUserItems(newName);
+    if(result)
+      data.setUserItems(newName);
   }
 
   return (
