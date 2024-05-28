@@ -17,11 +17,12 @@ const ProfilePageComponent = () => {
   const data = useAppContext();
   const router = useRouter();
 
-  const [image, setImage] = useState<any>("");
+  const [image, setImage] = useState<any>(data.userInfo.profilePicture);
   const [newName, setNewName] = useState<string>(data.user);
   const [password, setPassword] = useState<string>("");
 
   const [res, setRes] = useState<boolean | null>(null);
+  const [message, setMessage] = useState<string>("");
 
   const handleFileSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     let reader = new FileReader();
@@ -45,8 +46,12 @@ const ProfilePageComponent = () => {
 
     const result = await EditUser(data.user, update);
     setRes(result); 
-    if(result)
+    if(result){
       data.setUserItems(newName);
+      setMessage("Profile changed successfully!");
+    }
+    else
+      setMessage("Could not update your profile. Please try again.");
   }
 
   return (
@@ -72,7 +77,7 @@ const ProfilePageComponent = () => {
             />
           </div>
           <br />
-              <p className={res ? "text-green-400" : "text-red-600"}> { res != null ? {res} ? "Profile changed successfully!" : "Could not update your profile. Please try again" : ""} </p>
+              <p className={res ? "text-green-400" : "text-red-600"}> { res != null ? message : ""} </p>
           <div>
             <div className="mb-2 block">
               <Label htmlFor="name" value="Change User Name" />
