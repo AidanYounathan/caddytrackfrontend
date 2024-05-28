@@ -12,6 +12,7 @@
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
     "@mapbox/search-js-react": "^1.0.0-beta.21",
     "@microsoft/signalr": "^8.0.0",
+    "@phosphor-icons/react": "^2.1.5",
     "@types/mapbox__mapbox-gl-geocoder": "^5.0.0",
     "@types/mapbox-gl": "^3.1.0",
     "@vercel/analytics": "^1.2.2",

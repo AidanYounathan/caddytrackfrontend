@@ -7,6 +7,7 @@ import { useAppContext } from "@/Context/Context";
 import defaultPFP from "../../public/defaultPFP.jpg";
 import Image from "next/image";
 import { Button, FileInput, Label, TextInput } from "flowbite-react";
+import { Eye, EyeClosed } from "@phosphor-icons/react";
 import {
   CreateAccountDTO,
   LoginDTO,
@@ -16,6 +17,8 @@ import { EditUser } from "@/DataServices/DataServices";
 const ProfilePageComponent = () => {
   const data = useAppContext();
   const router = useRouter();
+
+  const [showPass, setShowPass] = useState<boolean>(true)
 
   const [image, setImage] = useState<any>(data.userInfo.profilePicture);
   const [newName, setNewName] = useState<string>(data.user);
@@ -88,10 +91,14 @@ const ProfilePageComponent = () => {
           <br />
 
           <div>
-            <div className="mb-2 block">
+            <div className="mb-2  mr-3 flex justify-between">
               <Label htmlFor="password" value="Change Password" />
+              <Eye size={24} className={`${showPass ? '' : 'hidden'} hover:cursor-pointer`} onClick={() => setShowPass(false)}/>
+                <EyeClosed size={24} className={`${!showPass ? '' : 'hidden'} hover:cursor-pointer`} onClick={() => setShowPass(true)}/>
+
             </div>
-            <TextInput id="password" type="text" placeholder="New Password" value={password} onChange={(e) => {setPassword(e.target.value); setRes(null)}} />
+
+            <TextInput id="password" type="password" placeholder="New Password" value={password} onChange={(e) => {setPassword(e.target.value); setRes(null)}} />
           </div>
 
           <div className=" mb-8 mx-auto block mt-4">
