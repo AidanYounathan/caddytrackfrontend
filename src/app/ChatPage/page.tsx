@@ -14,8 +14,8 @@ const Page = () => {
     <>
     <div className='h-screen DashBG'>
       <NavbarComponent/>
-      <div className="background w-auto h-screen flex">
-         <div className="w-[800px] mx-auto mt-[69px] lg:mt-[74px]">
+      <div className="background w-auto  flex">
+         <div className="w-[800px] mx-auto  mt-[69px] lg:mt-[74px]">
          <ChatComponent/>
           </div>
       </div>
