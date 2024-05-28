@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div className='h-[100vh] DashBG'>
         <NavbarComponent/>
-        <div className="w-[420px] mx-auto mt-[69px] lg:mt-[32px]">
+        <div className="md:w-[500px] lg:w-[600px] xl:w-[700px] mx-5 md:mx-auto mt-[69px] lg:mt-[14px]">
           <ProfilePageComponent />
         </div>
         
