@@ -64,7 +64,7 @@ const ProfilePageComponent = () => {
 
           <div className="flex justify-center">
             <Image
-              className="w-14 mr-2 lg:w-16 h-14 lg:h-16  rounded-full"
+              className="w-24 mr-2 lg:w-28 h-24 lg:h-28  rounded-full"
               src={
                 data.userInfo.profilePicture == "" ||
                 data.userInfo.profilePicture == null
