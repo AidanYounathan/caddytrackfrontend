@@ -89,7 +89,7 @@ const ChatComponent = () => {
 
   return (
     <>
-      <div className="bg-[#d0d1d1] opacity-[98%] text-black rounded-xl py-5 w-full">
+      <div className="bg-[#D0D1D1] opacity-[98%] text-black rounded-xl py-5 w-full">
         <h1 className="text-3xl text-center pb-4 tracking-wide">Fairway Chats</h1>
 
 {/* Message Box */}
