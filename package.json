@@ -9,15 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^5.0.2",
+    "@mapbox/search-js-react": "^1.0.0-beta.21",
     "@microsoft/signalr": "^8.0.0",
+    "@types/mapbox__mapbox-gl-geocoder": "^5.0.0",
+    "@types/mapbox-gl": "^3.1.0",
     "@vercel/analytics": "^1.2.2",
     "dotenv": "^16.4.5",
     "flowbite-react": "^0.7.5",
     "framer-motion": "^11.1.9",
+    "mapbox-gl": "^3.4.0",
+    "mapbox-gl-style-switcher": "^1.0.11",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.1.0"
+    "react-icons": "^5.1.0",
+    "react-map-gl": "^7.1.7"
   },
   "devDependencies": {
     "@types/node": "^20",
