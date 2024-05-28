@@ -199,6 +199,10 @@ const DashboardComponent = () => {
                             <TextInput
                                 id="stock"
                                 type="number"
+                                inputMode="numeric"
+                                onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+                                maxLength={3}
+                                max="600"
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"
                                 value={stock != 0 ? stock : ''}
                                 placeholder="Enter Yardage Number"
@@ -215,6 +219,9 @@ const DashboardComponent = () => {
                                 id="max"
                                 type="number"
                                 value={max != 0 ? max : ''}
+                                onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+                                maxLength={3}
+                                max="600"
                                 placeholder="Enter Yardage Number"
                                 pattern=" 0+\[0-9]*[1-9][0-9]*$"
                                 required
