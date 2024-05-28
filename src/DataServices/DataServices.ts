@@ -1,4 +1,5 @@
-import { CreateAccountDTO, IUserInfo, LoginDTO, Result, TrackerDTO, UpdateUserDTO } from "./Interfaces/Interfaces"
+import { Course, CreateAccountDTO, IUserInfo, LoginDTO, MapDots, TrackerDTO, UpdateUserDTO } from "./Interfaces/Interfaces"
+import jsonData from './courses.json'
 
 const Login = async (loginDTO : LoginDTO) => {
     
@@ -133,20 +134,8 @@ const EditUser = async(name:string, update:UpdateUserDTO) => {
 
 }
 
-// Aidan Section Start?
+const GetMapDots = () : any => {
+    return jsonData;
+}
 
-    const getSearch = async(userInput:string ) =>{
-        // const apiKey = await process.env.GOOG_API_KEY as string;
-        // console.log(apiKey);
-        const promise = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=golf%20in%20az&key=AIzaSyCadaIvQl97OhzFa26K9uHY1UMdgPnyLuo`)
-        const data: Result = await promise.json();
-        console.log(data)
-        return data
-    }
-
-    
-
-// End Aidan Section
-
-
-export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData, GetUserPfp, EditUser,getSearch}
+export {Login, CreateAccount, ForgotPassword, AddTracker, GetTrackers, EditTracker, DeleteTracker, GetUserData, GetUserPfp, EditUser, GetMapDots}

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Label, TextInput, Button, FileInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import { CreateAccountDTO, LoginDTO } from "../DataServices/Interfaces/Interfaces";
-import { Login, CreateAccount, GetUserData } from "../DataServices/DataServices";
+import { Login, CreateAccount } from "../DataServices/DataServices";
 import { useAppContext } from "@/Context/Context";
 
 const LoginComponent = () => {
