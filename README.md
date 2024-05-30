@@ -6,7 +6,7 @@ Welcome to **CaddyTrack**, the comprehensive app designed for golfers of all ski
 
 - **Club Tracker:** Log and analyze the distance of each of your clubs to better understand your performance.
 - **Golfer Community:** Chat with other golfers to share tips, discuss games, and form golfing friendships.
-- **Course Finder:** Search for golf courses around you, view detailed information about each course, and plan your next game.
+- **Course Finder(In Development):** Search for golf courses around you, view detailed information about each course, and plan your next game.
 
 ## Contributing
 
