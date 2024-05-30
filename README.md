@@ -22,4 +22,4 @@ We welcome contributions to CaddyTrack. If you have suggestions or improvements,
 ## Acknowledgments
 
 - Thanks to everyone who provided feedback and helped test the app.
-- Special thanks to local golf communities for their invaluable insights.
+
